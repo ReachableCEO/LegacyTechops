@@ -1,0 +1,70 @@
+#############################################################
+Core services (BLM/S backups, logging, monitoring, security)
+#############################################################
+
+
+
+####
+1) Logging backend
+####
+
+Setup stratum 1/2 NTP at SATX
+Setup stratum 2 NTP at OVH
+Fix time zones everywhere to CST
+Setup security onion
+
+
+6) Backups and storage
+* Audit overall backup strategy
+ 
+   Finish setup of ZFS at satx
+    ZFS caching
+Before cache usb:
+root@ausprod-linsrv:~/envmon/temper-python# ls /dev/disk/by-id/
+ata-HL-DT-ST_DVD+_-RW_GSA-H73N              ata-WDC_WD10JMVW-11AJGS3_WD-WX51AB339130        ata-WDC_WD10JMVW-11AJGS3_WD-WX61A759LES4-part1  wwn-0x50014ee65b4b1bfd
+ata-PLDS_DVD-ROM_DH-16D2S                   ata-WDC_WD10JMVW-11AJGS3_WD-WX51AB339130-part1  wwn-0x50014ee65979b8c3                          wwn-0x50014ee65b4b1bfd-part1
+ata-SanDisk_SDSSDRC032G_151115401425        ata-WDC_WD10JMVW-11AJGS3_WD-WX51AB339130-part9  wwn-0x50014ee65979b8c3-part1                    wwn-0x5001b44e3ac304d1
+ata-SanDisk_SDSSDRC032G_151115401425-part1  ata-WDC_WD10JMVW-11AJGS3_WD-WX61A759LES4        wwn-0x50014ee65979b8c3-part9                    wwn-0x5001b44e3ac304d1-part1
+root@ausprod-linsrv:~/envmon/temper-python#
+
+After cache usb:
+root@ausprod-linsrv:~/envmon/temper-python# ls /dev/disk/by-id
+ata-HL-DT-ST_DVD+_-RW_GSA-H73N              ata-WDC_WD10JMVW-11AJGS3_WD-WX51AB339130-part1  usb-MONSTER_USB_2.0_621AE5C7-0:0-part1       wwn-0x50014ee65979b8c3-part1  wwn-0x5001b44e3ac304d1-part1
+ata-PLDS_DVD-ROM_DH-16D2S                   ata-WDC_WD10JMVW-11AJGS3_WD-WX51AB339130-part9  usb-MONSTER_USB_2.0_FBZXXXXXXQJBR-0:0        wwn-0x50014ee65979b8c3-part9
+ata-SanDisk_SDSSDRC032G_151115401425        ata-WDC_WD10JMVW-11AJGS3_WD-WX61A759LES4        usb-MONSTER_USB_2.0_FBZXXXXXXQJBR-0:0-part1  wwn-0x50014ee65b4b1bfd
+ata-SanDisk_SDSSDRC032G_151115401425-part1  ata-WDC_WD10JMVW-11AJGS3_WD-WX61A759LES4-part1  usb-MONSTER_USB_2.0_FBZXXXXXXQJBR-0:0-part2  wwn-0x50014ee65b4b1bfd-part1
+ata-WDC_WD10JMVW-11AJGS3_WD-WX51AB339130    usb-MONSTER_USB_2.0_621AE5C7-0:0                wwn-0x50014ee65979b8c3                       wwn-0x5001b44e3ac304d1
+r-----------------------
+
+
+Finish technical infrastructure:
+Finish backup setup
+		ovh replication automation to rsync.net
+		linux lab server 
+				zfs on usb drive
+				snapshot/replicate to rsync.net
+		Finalize laptop data cleanup/backup
+
+Finish monitoring setup
+		Zenoss
+		OVH
+
+Security - full lockdown / baseline
+===Pen test===
+http://resources.infosecinstitute.com/pentesting-distributions-and-installer-kits-for-your-raspberry-pi/
+	Setup all jimmyraypurser blog post security tools
+	Setup metasploit/armitage/openvas
+	Setup warvox
+
+===Setup PIV using CA===
+https://technet.microsoft.com/en-us/library/ff829847(v=ws.10).aspx
+https://www.nsa.gov/ia/programs/suiteb_cryptography/index.shtml
+http://sourceforge.net/projects/opensc/files/OpenSC/opensc-0.14.0/
+https://technet.microsoft.com/en-us/library/
+http://blogs.technet.com/b/pki/archive/2012/03/14/hspd-12-logical-access-authentication-and-2008-active-directory-domains-on-download-center.aspx
+
+https://github.com/dejavusecurity/OutlookPrivacyPlugin
+https://blog.josefsson.org/2014/06/23/offline-gnupg-master-key-and-subkeys-on-yubikey-neo-smartcard/
+http://blog.mailgun.com/security-guide-basic-infrastructure-security/
+http://viccuad.me/blog/secure-yourself-part-1-airgapped-computer-and-GPG-smartcards
+https://trmm.net/Yubikey

@@ -1,0 +1,169 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet manual
+
+
+##########################################################################
+#WAN bridge - non ovs, physical interface
+##########################################################################
+auto brWan
+iface brWan inet static
+	address 158.69.225.97
+	netmask 255.255.255.0
+	network 158.69.225.0
+	broadcast 158.69.225.255
+	gateway 158.69.225.254
+        bridge_ports eth0
+        bridge_stp off
+        bridge_fd 0
+        bridge_hello 2
+        bridge_maxage 12
+
+#Routing network
+#10.253.0.0/24
+
+#No VLAN1 obviously, what do you think this is? A holiday inn?
+
+##########################################################################
+#bare metal net  vlan2 goes nowhere just provides isolation
+##########################################################################
+auto baremetal
+allow-ovs baremetal
+iface baremetal inet static
+    address 10.253.44.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan2
+
+allow-baremetal vlan2
+iface vlan2 inet manual
+    ovs_bridge baremetal
+    ovs_type OVSIntPort
+    ovs_options tag=2
+
+##########################################################################
+#mgmt net vlan3
+##########################################################################
+auto mgmt
+allow-ovs mgmt
+iface mgmt inet static
+    address 10.253.3.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan3
+
+allow-mgmt vlan3
+iface vlan3 inet manual
+    ovs_bridge mgmt
+    ovs_type OVSIntPort
+    ovs_options tag=3
+
+##########################################################################
+#asn2net net vlan4
+##########################################################################
+auto asn2net
+allow-ovs asn2net
+iface asn2net inet static
+    address 10.253.4.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan4
+
+allow-asn2net vlan4
+iface vlan4 inet manual
+    ovs_bridge asn2net
+    ovs_type OVSIntPort
+    ovs_options tag=4
+
+##########################################################################
+#S2l net vlan5
+##########################################################################
+auto s2l
+allow-ovs s2l
+iface s2l inet static
+    address 10.253.5.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan5
+
+allow-s2l vlan5
+iface vlan5 inet manual
+    ovs_bridge s2l
+    ovs_type OVSIntPort
+    ovs_options tag=5
+
+
+##########################################################################
+#rackrental net vlan6
+##########################################################################
+auto rackrental
+allow-ovs rackrental
+iface rackrental inet static
+    address 10.253.6.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan6
+
+allow-rackrental vlan6
+iface vlan6 inet manual
+    ovs_bridge rackrental
+    ovs_type OVSIntPort
+    ovs_options tag=6
+
+
+##########################################################################
+#fnf net vlan7
+##########################################################################
+auto fnf
+allow-ovs fnf
+iface fnf inet static
+    address 10.253.7.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan7
+
+allow-fnf vlan7
+iface vlan7 inet manual
+    ovs_bridge fnf
+    ovs_type OVSIntPort
+    ovs_options tag=7
+
+##########################################################################
+#knel net vlan8
+##########################################################################
+auto knel
+allow-ovs knel
+iface knel inet static
+    address 10.253.8.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan8
+
+allow-knel vlan8
+iface vlan8 inet manual
+    ovs_bridge knel
+    ovs_type OVSIntPort
+    ovs_options tag=8
+
+##########################################################################
+#tsys net vlan9
+##########################################################################
+auto tsys
+allow-ovs tsys
+iface tsys inet static
+    address 10.253.9.2
+    netmask 255.255.255.0
+    ovs_type OVSBridge
+    ovs_ports vlan9
+
+allow-tsys vlan9
+iface vlan9 inet manual
+    ovs_bridge tsys
+    ovs_type OVSIntPort
+    ovs_options tag=9

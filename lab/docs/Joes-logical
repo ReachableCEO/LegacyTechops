@@ -1,0 +1,80 @@
+nwdiag {
+
+//Upstream space (gateways,partner networks etc)
+
+network "JoesDataCenter Upstream" {
+	JoesWanGateway [shape = cloud ] address = "96.43.139.113";
+	address = "96.43.139.113/28";
+}
+
+network "Wan edge - public" {
+  group wan-edge-outside {
+  	wan01-public [shape = cloud ] [ address = "96.43.139.115"];
+  	wan02-public [shape = cloud ] [ address = "96.43.139.116"];
+  }
+}
+
+// Intra network links
+JoesWanGateway -- wan01-public;
+wan01 -- sw01;
+
+// Networks under our administrative control.
+// Using a standardized scheme of: site name, local vlan, description
+
+network "Joes - VLAN 2 - Physical Systems" {
+    address = "10.250.2.0/24";
+
+	group wan-edge-inside {
+		wan01 [ address = "10.250.2.x" ]
+		wan02 [ address = "10.250.2.x" ]
+	}
+
+	group switches {
+	  sw01 [address = "10.250.2.25"];
+	  sw02 [address = "10.250.2.75"];
+	}
+
+    group lxc-vm-hosts {
+      vm01 [address = "10.250.2.3"];
+      vm02 [address = "10.250.2.5"];
+    }
+
+	group zfs-storage-nodes {
+	  stor01 [address = "10.250.2.70"];
+	  stor02 [address = "10.250.2.75"];
+	}
+
+  }
+
+network "Joes - VLAN 4 - Production Virtual Machines" {
+    address = "10.250.4.0/24";
+
+	group www {
+		lamplb [ address = "10.250.4.38" ];
+		lamppublic [ address = "10.250.4.40" ];
+		lampenterprise [ address = "10.250.4.37" ];
+		chili [ address = "10.250.4.32" ];
+		askbot [ address = "10.250.4.72" ];
+		gus [ address = "10.250.4.74" ];
+	}
+
+	group coreinfra {
+		dns [ address = "10.250.6.5" ];
+		ldap [ address = "10.250.4.54" ];
+		autonoc [ address = "10.250.4.39" ];
+		sql [ address = "10.250.4.53" ];
+	}
+
+	group comms {
+		mail [ address = "10.250.4.73" ];
+		irc [ address = "10.250.4.63" ];
+	}
+
+
+  }
+
+//network "FNF KC - Development Virtual Machines - Management network - VLAN(x) {
+//
+//}
+
+}

@@ -1,0 +1,59 @@
+nwdiag {
+  network OVH_TRANSIT_WAN {
+	address = "192.168.204.0/30"
+	ovh-wanrtr [ address = ".1"];
+	ausprod-coreap01-vpnwan [ address = ".2"];
+  }
+  
+  group ovhtransitwan {
+	ovh-wanrtr
+	ausprod-coreap01-vpnwan 
+  }
+
+
+  network ATT_UVERSE_LAN {
+    address = "192.168.1.0/24";
+
+    group attuverselan {
+      ausprod-coreap01-wan [address = ".253"];
+    }
+  }
+
+  network TURNSYS_TRANSIT_LAN {
+    address = "192.168.2.0/24";
+    ausprod-coreap01-lan [address = ".1"];
+    ausprod-coresw01 [address = ".22"];
+    auslab-labrtr-wan [address = ".21"];
+
+    group turnsystransitlan {
+      ausprod-coreap01-lan;
+      ausprod-coresw01;
+      auslab-labrtr-wan;
+    }
+  }
+
+  network TURNSYS_MGMT_LAN {
+	address = "10.251.2.0/24";
+	auslab-labrtr-mgmtgw [ address = ".254"];
+	auslab-ips [ address = ".97"];
+	auslab-labsw01 [ address = ".2"];
+	auslab-labsw02 [ address = ".4"];
+	auslab-labsw03 [ address = ".5"];
+	auslab-labcon01 [ address = ".3"];
+	auslab-linsrv [ address = ".99"];
+	auslab-winsrv [ address = ".98"];
+
+  group turnsysmgmtlan-vlan2 {
+	auslab-labrtr-mgmtgw;
+	auslab-ips
+	auslab-labsw01;
+	auslab-labsw02;
+	auslab-labsw03;
+	auslab-labcon01;
+	auslab-linsrv
+	auslab-winsrv
+	}
+  }
+
+}
+

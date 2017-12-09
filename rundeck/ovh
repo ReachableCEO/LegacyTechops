@@ -1,0 +1,35 @@
+shared-router.turnsys.net:
+  hostname: shared-router.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,infra'
+tsys-cloud.turnsys.net:
+  hostname: tsys-cloud.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,tsys'
+tsys-rr-shell.turnsys.net:
+  hostname: tsys-rr-shell.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,rr'
+tsys-rr-app.turnsys.net:
+  hostname: tsys-rr-app.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,rr'
+toolbox.turnsys.net:
+  hostname: toolbox.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,infra'
+shared-build.turnsys.net:
+  hostname: shared-build.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,infra'
+shared-zenoss.turnsys.net:
+  hostname: shared-zenoss.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,virtual,infra'

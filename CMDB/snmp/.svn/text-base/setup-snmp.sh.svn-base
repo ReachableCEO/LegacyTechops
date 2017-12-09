@@ -1,0 +1,62 @@
+#!/bin/bash
+#A script to setup snmp on redhat/debian systems
+
+
+
+centos_snmp()
+#Install SNMP on a cent box
+{
+#Fix yum.conf
+wget -O /etc/yum/yum.conf http://slack-master.tplab.tippingpoint.com/yum.conf
+
+
+#Install snmpd
+yum -y install net-snmp
+
+#Install observium bits
+wget -O /usr/bin/distro http://www.observium.org/svn/observer/trunk/scripts/distro
+chmod 755 /usr/bin/distro
+
+#Pull down snmpd configuration files
+wget  -O /etc/snmp/snmpd.conf http://slack-master.tplab.tippingpoint.com/snmp/snmpd.conf 
+wget  -O /etc/sysconfig/snmpd.options http://slack-master.tplab.tippingpoint.com/snmp/centos-snmpd.options 
+
+#Restart snmpd
+/etc/init.d/snmpd restart
+
+chkconfig snmpd on
+}
+
+
+debian_snmp()
+#Install snmp on a debian box
+{
+#Install snmpd
+apt-get -y install snmpd 
+
+#Install observium bits
+wget -O /usr/bin/distro http://www.observium.org/svn/observer/trunk/scripts/distro
+chmod 755 /usr/bin/distro
+
+#Pull down snmpd configuration files
+wget  -O /etc/default/snmpd http://slack-master.tplab.tippingpoint.com/snmp/debian-default-snmpd.conf 
+wget  -O /etc/snmp/snmpd.conf http://slack-master.tplab.tippingpoint.com/snmp/snmpd.conf 
+
+#Restart snmpd
+/etc/init.d/snmpd restart
+
+chkconfig snmpd on
+}
+
+
+DIST=$(lsb_release -d)
+
+if [ $(echo $DIST | grep Ubuntu -c) -eq 1 ];
+then
+debian_snmp
+fi
+
+if [ $(echo $DIST | grep Centos -c) -eq 1 ];
+then
+centos_snmp
+fi
