@@ -8,6 +8,7 @@
 
 
 export MGMT_INT="$(netstat -rn |grep 0.0.0.0|awk '{print $NF}' |head -n1 )"
+export MGMT_IP="$(ifconfig eth0|grep inet|awk '{print $2}'|head -n1)"
 export ENVIP="$(echo $MGMT_IP|awk -F '.' '{print $2}')"
 
 export DIST_SERVER="http://tsys-techops.turnsys.net/"
