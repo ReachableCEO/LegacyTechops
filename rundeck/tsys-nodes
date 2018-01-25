@@ -3,23 +3,8 @@ tsys-cloud-www.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,ovh,virtual,tsys'
-tsys-cloud-cloudron.turnsys.net:
-  hostname: tsys-cloud-cloudron.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,ovh,virtual,tsys'
-tsys-rr-app.turnsys.net:
-  hostname: tsys-rr-app.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,ovh,virtual,rr'
 toolbox.turnsys.net:
   hostname: toolbox.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,ovh,virtual,infra'
-tsys-cloud-discourse.turnsys.net:
-  hostname: tsys-cloud-discourse.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,ovh,virtual,infra'
@@ -28,13 +13,8 @@ octopi.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'pfv,physical,infra,tsys'
-rrsvr.pfv.turnsys.net:
-  hostname: rrsvr.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,pfv,physical,infra'
-tsys-cn1.satx.turnsys.net:
-  hostname: tsys-cn1.satx.turnsys.net
+satx-ucs.turnsys.net:
+  hostname: satx-ucs.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'satx,physical,infra,tsys'
