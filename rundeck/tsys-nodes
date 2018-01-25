@@ -23,3 +23,12 @@ satx-time.satx.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,satx,physical,infra'
+pfv-ucs.turnsys.net:
+  hostname: pfv-ucs.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+ovh-ucs.turnsys.net:
+  hostname: ovh-ucs.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+
