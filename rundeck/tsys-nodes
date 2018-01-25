@@ -43,23 +43,3 @@ satx-time.satx.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,satx,physical,infra'
-fsky2-rpi3.turnsys.net:
-  hostname: fsky2-rpi3.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,satx,physical,subo'
-subo-logtest.turnsys.net:
-  hostname: subo-logtest.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,satx,physical,subo'
-fground01.turnsys.net:
-  hostname: fground01.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,satx,physical,subo'
-fground-flink.turnsys.net:
-  hostname: fground-flink.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'prod,satx,physical,subo'
