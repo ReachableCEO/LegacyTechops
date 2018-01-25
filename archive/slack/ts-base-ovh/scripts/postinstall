@@ -1,0 +1,71 @@
+#!/bin/bash -l
+#
+
+set -o nounset
+
+#ovhbase slack postinstall script
+#This contains code that is run across 100% of the Linux systems built at Turn Net Systems LLC for subscribing series managed by Charles/Brendan
+#Author: Charles N Wyble
+#Copyright ALL RIGHTS RESERVED BY TURN NET SYSTEMS
+
+
+#Boilerplate function
+#Code for error handling
+error-out()
+{
+
+echo "Errors!!!"
+exit 1
+
+}
+
+#####################################################################################################################################
+#Called from main
+#Takes two arguments, both are environment variables setup in the main function
+#####################################################################################################################################
+main()
+{
+
+#Step 1: Update the cache and apply all vendor patches
+export DEBIAN_FRONTEND="noninteractive" && apt-get -y update 
+export DEBIAN_FRONTEND="noninteractive" && apt-get -y dist-upgrade
+
+#Step 2: Cleanup default cruft 
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --force-yes --purge remove nano resolvconf
+
+#Step 3: Creature comforts
+DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --force-yes -o Dpkg::Options::="--force-confold" install snmpd sssd-ad sysv-rc-conf ncdu iftop nethogs screen open-vm-tools acct tshark tcpdump glances dstat htop sysdig sysstat ntp rsync ngrep ufw clamav logwatch zsh sl postfix krb5-user samba autofs adcli molly-guard git
+
+#Turn on process accounting
+accton on 
+
+
+#Set services to start on startup
+#sysv-rc-conf on snmpd
+
+#Firewall
+ufw --force enable
+ufw allow ssh/tcp
+ufw allow proto udp from 15.226.142.38 to any port 161
+
+#SSL bits
+update-ca-certificates
+
+echo "Server type is $1"
+
+#Join active directory only if we are a cvm or prod system
+		/etc/init.d/ntp stop
+		ntpdate tsys-winsrv.turnsys.net
+
+		/etc/init.d/ntp start
+		echo -n 'adjoin123' | adcli join -U addcomputer -D turnsys.net -S tsys-winsrv.turnsys.net --stdin-password -v
+		chmod 600 /etc/sssd/sssd.conf
+		chown root:root /etc/sssd/sssd.conf
+		service sssd start
+
+}
+
+#####################################################################################################################################
+#Execution starts main()																											#
+#####################################################################################################################################
+main
