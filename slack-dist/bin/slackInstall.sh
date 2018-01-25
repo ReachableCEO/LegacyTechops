@@ -96,8 +96,8 @@ mkdir /root/.ssh
 chmod 700 /root/.ssh
 chown -R root:root /root/.ssh
 
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackConfig-$LR-$SERVER_TYPE.config -O /etc/slack.conf
+wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackConfig-$SITE-$SERVER_TYPE.config -O /etc/slack.conf
 wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackSSH-$SITE-$SERVER_TYPE.config -O /root/.ssh/config
 wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackSSH-$SITE-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
-chmod 400 /root/.ssh/SlackSSH-$LR-$SERVER_TYPE.key
+chmod 400 /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
 chmod 400 /root/.ssh/config
