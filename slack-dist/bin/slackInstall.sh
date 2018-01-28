@@ -85,6 +85,8 @@ mkdir /root/.ssh
 chmod 700 /root/.ssh
 chown -R root:root /root/.ssh
 
+echo "Server type:" $SERVER_TYPE
+
 wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackConfig-$SERVER_TYPE.config -O /etc/slack.conf
 wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.config -O /root/.ssh/config
 wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SERVER_TYPE.key
