@@ -68,13 +68,13 @@ HOSTFILEDYNAMIC
 #######################################################################################################################################################
 #Step 3: Grab slack runtime bits and deploy slack
 #######################################################################################################################################################
-curl $DIST_SERVER/$DIST_ROOT_PATH/distro  > /usr/bin/distro 
+curl -q $DIST_SERVER/$DIST_ROOT_PATH/distro  > /usr/bin/distro 
 chmod +x /usr/bin/distro
 
 apt-get -y install make perl rsync
 
 mkdir /tmp/slackDist
-wget $DIST_SERVER/$DIST_ROOT_PATH/slackDist.tar.gz -O /tmp/slackDist/slackDist.tar.gz
+wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/slackDist.tar.gz -O /tmp/slackDist/slackDist.tar.gz
 cd /tmp/slackDist
 tar xvfz slackDist.tar.gz
 make install
@@ -85,8 +85,8 @@ mkdir /root/.ssh
 chmod 700 /root/.ssh
 chown -R root:root /root/.ssh
 
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackConfig-$SERVER_TYPE.config -O /etc/slack.conf
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.config -O /root/.ssh/config
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
+wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackConfig-$SERVER_TYPE.config -O /etc/slack.conf
+wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.config -O /root/.ssh/config
+wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
 chmod 400 /root/.ssh/SlackSSH-$SERVER_TYPE.key
 chmod 400 /root/.ssh/config
