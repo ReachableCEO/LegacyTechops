@@ -9,7 +9,6 @@
 
 export MGMT_INT="$(netstat -rn |grep 0.0.0.0|awk '{print $NF}' |head -n1 )"
 export MGMT_IP="$(ifconfig eth0|grep inet|awk '{print $2}'|head -n1)"
-export ENVIP="$(echo $MGMT_IP|awk -F '.' '{print $2}')"
 
 export DIST_SERVER="http://tsys-techops.turnsys.net/"
 export DIST_ROOT_PATH="slack-dist"
@@ -33,33 +32,22 @@ export DIST_ROOT_PATH="slack-dist"
 #fi
 
 
+
 case $server_type in
-        ts)
-                export SERVER_TYPE="ts"
+        abc)
+                export SERVER_TYPE="abc"
                 ;;
-        cvm)
-                export SERVER_TYPE="cvm"
+        xxx)
+                export SERVER_TYPE="xxx"
                 ;;
-        bvm)
-                export SERVER_TYPE="bvm"
+        yyy)
+                export SERVER_TYPE="yyy"
                 ;;
         *)
                 export SERVER_TYPE="prod"
                 ;;
 esac
 
-case $ENVIP in
-	253)
-		export SITE="ovh"
-		;;
-	251)
-		export SITE="aus"
-		;;
-	40)
-		export SITE="satx"
-		;;
-	*)
-		esac
 
 
 #######################################################################################################################################################
@@ -97,8 +85,8 @@ mkdir /root/.ssh
 chmod 700 /root/.ssh
 chown -R root:root /root/.ssh
 
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackConfig-$SITE-$SERVER_TYPE.config -O /etc/slack.conf
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackSSH-$SITE-$SERVER_TYPE.config -O /root/.ssh/config
-wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SITE/SlackSSH-$SITE-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
-chmod 400 /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
+wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackConfig-$SERVER_TYPE.config -O /etc/slack.conf
+wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.config -O /root/.ssh/config
+wget $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SITE-$SERVER_TYPE.key
+chmod 400 /root/.ssh/SlackSSH-$SERVER_TYPE.key
 chmod 400 /root/.ssh/config
