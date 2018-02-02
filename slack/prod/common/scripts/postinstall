@@ -1,3 +1,3 @@
 #!/bin/bash
 
-apt install htop glances sssd-ad
+apt -y install htop glances sssd-ad
