@@ -1,0 +1,277 @@
+!
+! Last configuration change at 22:40:16 CST Thu Feb 1 2018 by cisco
+! NVRAM config last updated at 20:34:03 CST Thu Feb 1 2018 by cisco
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname pfv-core-sw01
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$.DDG$avbJ/Ba3mTZaUZj0DGbyr0
+enable password 7 13061E010803
+!
+username cisco privilege 15 password 7 1505091C57191970043E11262B5F25143975
+aaa new-model
+!
+!
+aaa authentication login default group NPS_RADIUS_SERVERS local
+aaa authorization exec default group NPS_RADIUS_SERVERS local if-authenticated 
+!
+!
+!
+aaa session-id common
+clock timezone CST -6
+system mtu routing 1500
+ip subnet-zero
+ip routing
+ip domain-name turnsys.net
+ip name-server 10.251.30.71
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1485245952
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1485245952
+ revocation-check none
+ rsakeypair TP-self-signed-1485245952
+!
+!
+crypto pki certificate chain TP-self-signed-1485245952
+ certificate self-signed 01
+  30820250 308201B9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31343835 32343539 3532301E 170D3933 30333031 30303030 
+  35335A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 34383532 
+  34353935 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100B3BC 70D69DBD 98EF4C19 8B98D8D6 FA1EEA8F 89C99567 38DAEDEE E481EB4B 
+  5FE96885 1E2E4CF6 7282D474 3C0F9711 FD94A661 DF3FCADA FCD801B3 BAC0F907 
+  A167C100 68E8B2C8 EC191A61 07EAEE1B 9A27C508 5BDE75D4 8E027D98 979AB506 
+  35AEF3AF ED6AB97B AF2137DD 1C28EB7F 9DDC88B0 AECA1529 8E252DAD D0AF0CD9 
+  14D50203 010001A3 78307630 0F060355 1D130101 FF040530 030101FF 30230603 
+  551D1104 1C301A82 18617573 2D636F72 65737730 312E7475 726E7379 732E6E65 
+  74301F06 03551D23 04183016 801437DF 64CC8992 2CD93FAC 0829D8DA E56280E2 
+  0374301D 0603551D 0E041604 1437DF64 CC89922C D93FAC08 29D8DAE5 6280E203 
+  74300D06 092A8648 86F70D01 01040500 03818100 6090B1E0 D07F081C 273982E5 
+  DA52C1A9 FF9D381B 6A9A6A65 A8315696 F7E1483C A8AE9C6A 74635CFE 03D8F845 
+  46188168 8E5CBF98 C4450FAC 95628D2E 3EB3D16F F8461D75 114A8F6F D40098E3 
+  C50F9AA7 6568273C 73436B35 B57CCF52 D152EBE0 84EE5684 F3D027B0 AEBDD7A0 
+  ECB58FD2 D717CADE 12CE7A53 C80E6BC4 3235D6FF
+  quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh time-out 60
+ip ssh authentication-retries 5
+!
+!
+!
+interface FastEthernet0/1
+ description labsw01
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ description unknown
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description printer-pi
+ switchport access vlan 22
+ spanning-tree portfast
+!         
+interface FastEthernet0/4
+ description pfv-ucs
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/5
+ description extcam-left
+ switchport access vlan 200
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description extcam-right
+ switchport access vlan 200
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description ap1
+ switchport access vlan 22
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description ap2
+ switchport access vlan 22
+!
+interface FastEthernet0/9
+ description ap3
+ switchport access vlan 22
+!
+interface FastEthernet0/10
+ description ap4
+ switchport access vlan 100
+!         
+interface FastEthernet0/11
+ description gallileo
+ switchport access vlan 22
+ switchport mode access
+!
+interface FastEthernet0/12
+ description ausprod-coreap01
+ power inline never
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 30
+ switchport mode trunk
+!
+interface FastEthernet0/13
+ description inkjet
+ switchport access vlan 22
+!
+interface FastEthernet0/14
+ description color laser
+ switchport access vlan 22
+ switchport mode access
+!
+interface FastEthernet0/15
+ description bwlaser
+ switchport access vlan 22
+ switchport mode access
+!
+interface FastEthernet0/16
+ description octopi
+ switchport access vlan 22
+ switchport mode access
+!
+interface FastEthernet0/17
+ description workbench switch
+ switchport access vlan 100
+ switchport mode access
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+ description parallela
+ switchport access vlan 22
+ switchport mode access
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+ description temp-port
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/23
+ description pfv-corertr01
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ description pfv-corertr02
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!         
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan30
+ description Mgmt net
+ ip address 10.251.30.100 255.255.255.0
+!
+interface Vlan31
+ description AP net
+ no ip address
+!
+interface Vlan32
+ description Switch net
+ no ip address
+!
+interface Vlan33
+ description VOIP net
+ no ip address
+!
+interface Vlan34
+ description Router net
+ no ip address
+!
+interface Vlan35
+ description IPTV
+ no ip address
+!
+interface Vlan36
+ description PeanutGallery
+ no ip address
+!
+interface Vlan37
+ description MALZOO (RED) net
+ no ip address
+!
+interface Vlan38
+ description Fstack1 
+ no ip address
+!
+interface Vlan39
+ description Fstack2
+ no ip address
+!
+interface Vlan40
+ description Storage
+ no ip address
+!
+interface Vlan100
+ description Desknet
+ no ip address
+!
+interface Vlan200
+ description nerdbone
+ no ip address
+!
+ip default-gateway 10.251.30.254
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.251.30.254
+no ip http server
+no ip http secure-server
+!
+!         
+logging 10.253.3.99
+snmp-server user kn3lmgmt kn3lmgmt v1 
+snmp-server user kn3lmgmt kn3lmgmt v2c 
+snmp-server community kn3lmgmt RO
+snmp-server user kn3lmgmt kn3lmgmt v1 
+snmp-server user kn3lmgmt kn3lmgmt v2c 
+snmp-server location PFV
+snmp-server chassis-id pfv-core-sw01
+!
+control-plane
+!
+!
+line con 0
+line vty 0 4
+ transport input all
+line vty 5 15
+!
+ntp clock-period 36029637
+ntp server 10.251.30.254
+ntp server 10.251.30.253
+end
+

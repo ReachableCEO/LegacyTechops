@@ -1,0 +1,230 @@
+!
+! Last configuration change at 20:32:33 CST Thu Feb 1 2018 by cisco
+! NVRAM config last updated at 20:32:36 CST Thu Feb 1 2018 by cisco
+! NVRAM config last updated at 20:32:36 CST Thu Feb 1 2018 by cisco
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname pfv-core-ap01
+!
+logging rate-limit console 9
+no logging console
+no logging monitor
+enable secret 5 $1$lB96$.3rp3EmJ9p2KjpJh7h0.T.
+!
+no aaa new-model
+clock timezone CST -6 0
+no ip domain lookup
+ip name-server 10.253.3.86
+!
+!
+dot11 syslog
+dot11 vlan-name Nerdbone vlan 200
+dot11 vlan-name TheNerdery vlan 100
+!
+dot11 ssid Nerdbone
+   vlan 200
+   authentication open 
+   authentication key-management wpa
+   mbssid guest-mode
+   wpa-psk ascii 7 08714E1E041831051302180B386A
+!
+dot11 ssid TheNerdery
+   vlan 100
+   authentication open 
+   authentication key-management wpa
+   mbssid guest-mode
+   wpa-psk ascii 7 132B47021800572E6A
+!
+dot11 network-map
+power inline negotiation injector override
+crypto pki token default removal timeout 0
+!
+crypto pki trustpoint TP-self-signed-3632941680
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3632941680
+ revocation-check none
+ rsakeypair TP-self-signed-3632941680
+!
+!
+crypto pki certificate chain TP-self-signed-3632941680
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33363332 39343136 3830301E 170D3933 30333031 30303032 
+  31385A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36333239 
+  34313638 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100BDC3 965C98A2 EB69E593 4AEAB184 675EC9C6 8518857D B366DDF8 F4E666C8 
+  6C08CF6A 7563828E 607931DA EB0AD984 142ECB95 1618F2A9 A9624D61 07FCE76F 
+  0C0A8696 E178A8B1 FB966206 8A0769BC B7FA8881 AE34443C 3800B61F B97E9FA1 
+  66E0675F 7B494A0C AD657CD9 847C6755 A65A7E59 B625E45D 89C0AFDE 2B646015 
+  5CFF0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 14715BA0 DC1E3390 78A05B38 1C6B64C8 52A67D60 9B301D06 
+  03551D0E 04160414 715BA0DC 1E339078 A05B381C 6B64C852 A67D609B 300D0609 
+  2A864886 F70D0101 05050003 8181000B 52E38067 C0AB47F9 08AA49B5 5D4EEA01 
+  6E94406F 1579D75C 6888DFB0 D93BF95A 719F2884 7EEF5101 03A5FF8A D5D88568 
+  E48F6F15 7337BF48 B5D8A329 579F9287 DBD9539A 9B084568 BD20BD94 A778A0DE 
+  6DCE2368 1EF9AC86 6271A1C1 1072FCC1 F5B0DAFB 9FA3200A 967A8F03 E3D37ADC 
+  3C25EE36 671237BC 3A7A9049 B027B0
+  	quit
+username cisco privilege 15 password 7 0313591B553C131862043D012F4A381B3C09
+!
+!
+bridge irb
+!
+!
+interface Dot11Radio0
+ no ip address
+ no ip route-cache
+ !
+ encryption mode ciphers aes-ccm 
+ !
+ encryption vlan 100 mode ciphers aes-ccm tkip 
+ !
+ encryption vlan 200 mode ciphers aes-ccm tkip 
+ !
+ ssid Nerdbone
+ !
+ ssid TheNerdery
+ !
+ antenna gain 0
+ mbssid   
+ speed  basic-1.0 basic-2.0 basic-5.5 basic-11.0 6.0 9.0 12.0 18.0 24.0 36.0 48.0 54.0
+ channel 2422
+ station-role root
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 spanning-disabled
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+!
+interface Dot11Radio0.100
+ encapsulation dot1Q 100
+ no ip route-cache
+ bridge-group 100
+ bridge-group 100 subscriber-loop-control
+ bridge-group 100 spanning-disabled
+ bridge-group 100 port-protected
+ bridge-group 100 block-unknown-source
+ no bridge-group 100 source-learning
+ no bridge-group 100 unicast-flooding
+!
+interface Dot11Radio0.200
+ encapsulation dot1Q 200
+ no ip route-cache
+ bridge-group 200
+ bridge-group 200 subscriber-loop-control
+ bridge-group 200 spanning-disabled
+ bridge-group 200 block-unknown-source
+ no bridge-group 200 source-learning
+ no bridge-group 200 unicast-flooding
+!
+interface Dot11Radio1
+ no ip address
+ no ip route-cache
+ !
+ encryption mode ciphers aes-ccm 
+ !
+ encryption vlan 100 mode ciphers aes-ccm tkip 
+ !
+ encryption vlan 200 mode ciphers aes-ccm tkip 
+ antenna gain 0
+ dfs band 3 block
+ speed  basic-6.0 9.0 basic-12.0 18.0 basic-24.0 36.0 48.0 54.0
+ channel dfs
+ station-role root
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 spanning-disabled
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+!
+interface Dot11Radio1.100
+ encapsulation dot1Q 100
+ no ip route-cache
+ bridge-group 100
+ bridge-group 100 subscriber-loop-control
+ bridge-group 100 spanning-disabled
+ bridge-group 100 port-protected
+ bridge-group 100 block-unknown-source
+ no bridge-group 100 source-learning
+ no bridge-group 100 unicast-flooding
+!
+interface Dot11Radio1.200
+ encapsulation dot1Q 200
+ no ip route-cache
+ bridge-group 200
+ bridge-group 200 subscriber-loop-control
+ bridge-group 200 spanning-disabled
+ bridge-group 200 block-unknown-source
+ no bridge-group 200 source-learning
+ no bridge-group 200 unicast-flooding
+!
+interface GigabitEthernet0
+ no ip address
+ no ip route-cache
+ duplex auto
+ speed auto
+ bridge-group 1
+ bridge-group 1 spanning-disabled
+ no bridge-group 1 source-learning
+!
+interface GigabitEthernet0.100
+ encapsulation dot1Q 100
+ no ip route-cache
+ bridge-group 100
+ bridge-group 100 spanning-disabled
+ no bridge-group 100 source-learning
+!
+interface GigabitEthernet0.200
+ encapsulation dot1Q 200
+ no ip route-cache
+ bridge-group 200
+ bridge-group 200 spanning-disabled
+ no bridge-group 200 source-learning
+!         
+interface BVI1
+ ip address 10.251.30.251 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.251.30.254
+no ip http server
+ip http secure-server
+ip http help-path http://www.cisco.com/warp/public/779/smbiz/prodconfig/help/eag
+logging 10.253.3.99
+access-list 3 permit 10.253.3.99
+access-list 3 remark For SNMP - Only Monitoring Servers can access.
+access-list 3 permit 10.243.3.33
+access-list 3 deny   any log
+snmp-server community kn3l-mgmt RO 3
+snmp-server community kn3lmgmt RO
+snmp-server host 10.253.3.33 kn3l-mgmt 
+bridge 1 route ip
+!
+!
+banner login ^C5
+===============================================================================
+-------------------------------------------------------------------------------
+TURN NET SYSTEMS - PRODUCTION SYSTEM - GO AWAY
+-------------------------------------------------------------------------------
+
+   This is a private computer system.  These resources, including all
+   related equipmentURN NET SYSTEMS - PRODUCTION SYSTEM - GO AWAY
+===============================================================================
+^C
+!
+line con 0
+line vty 0 4
+ login local
+ transport input all
+!
+no exception crashinfo
+sntp server 10.251.30.253
+end
+

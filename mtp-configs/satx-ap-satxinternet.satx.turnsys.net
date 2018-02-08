@@ -1,0 +1,208 @@
+!
+version 12.3
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname outap-front
+!
+logging rate-limit console 9
+no logging console
+no logging monitor
+enable secret 5 $1$lB96$.3rp3EmJ9p2KjpJh7h0.T.
+!
+clock timezone CST -6
+ip subnet-zero
+no ip domain lookup
+ip domain name stmarytx.edu
+ip name-server 10.253.3.86
+!
+!
+no aaa new-model
+dot11 syslog
+dot11 vlan-name Public vlan 2
+dot11 vlan-name Video vlan 201
+dot11 vlan-name Voice vlan 200
+dot11 vlan-name Workstations vlan 50
+!
+dot11 ssid SATX-Internet
+   vlan 50
+   authentication open 
+   authentication key-management wpa
+   guest-mode
+   mbssid guest-mode dtim-period 75
+   wpa-psk ascii 7 070D2E43410E1C1704
+!
+dot11 network-map
+!
+crypto pki trustpoint TP-self-signed-4066931324
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4066931324
+ revocation-check none
+ rsakeypair TP-self-signed-4066931324
+!
+!
+crypto ca certificate chain TP-self-signed-4066931324
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 34303636 39333133 3234301E 170D3132 30313038 31363333 
+  32325A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 30363639 
+  33313332 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C811 9A785118 E4DAF6E4 1F1AA2BF 443A6F35 EA8A65EA 6A4768D9 C0998DD4 
+  335F80D8 69A45641 72E6AA4F 05260247 7FCF755F C13336C0 8071A2C5 4AB23C96 
+  BF57D1BB CD52B4F1 E7423EB8 C9482C26 3742EAFC 730A0DFF 02CEAC28 9B08F072 
+  04960164 01CE5182 BA8898A2 AF23160D 299B87B8 E53AADB3 9233EC21 D973F636 
+  01990203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 1444BE0D D2F9A64D 600430DB 70E4DB6E F890968D 74301D06 
+  03551D0E 04160414 44BE0DD2 F9A64D60 0430DB70 E4DB6EF8 90968D74 300D0609 
+  2A864886 F70D0101 04050003 81810006 C0FD3D8F 1D87A0D4 1BCD3561 BDA8713D 
+  A72756CA 65E67BB8 6BE0F3EE 17863E60 512A1B52 900F99D1 D4A66158 4B4D04C4 
+  33FE9E09 C82A76CD F63B13CC 0901AB8A 60D739DA 9B0FF35A 0A71529F 70B75C0F 
+  8F012B28 F979C9E6 66FDD951 97478D5B ACFCF8E6 B7786CDD 0593B48A FC551254 
+  F3452830 685FB60B 7BDEF67B C689FA
+  quit
+username Cisco privilege 15 password 7 02050D480809
+!
+bridge irb
+!
+!
+interface Dot11Radio0
+ no ip address
+ no ip route-cache
+ !
+ encryption mode ciphers aes-ccm 
+ !
+ encryption vlan 2 mode ciphers aes-ccm tkip 
+ !
+ encryption vlan 50 mode ciphers aes-ccm tkip 
+ !
+ encryption vlan 200 mode ciphers aes-ccm tkip 
+ !
+ encryption vlan 201 mode ciphers aes-ccm tkip 
+ !
+ ssid SATX-Internet
+ !
+ mbssid
+ speed basic-6.0 9.0 basic-12.0 18.0 basic-24.0 36.0 48.0 54.0
+ station-role root
+ antenna gain 0
+ bridge-group 1
+ bridge-group 1 subscriber-loop-control
+ bridge-group 1 block-unknown-source
+ no bridge-group 1 source-learning
+ no bridge-group 1 unicast-flooding
+ bridge-group 1 spanning-disabled
+!
+interface Dot11Radio0.2
+ encapsulation dot1Q 2
+ no ip route-cache
+ bridge-group 2
+ bridge-group 2 subscriber-loop-control
+ bridge-group 2 port-protected
+ bridge-group 2 block-unknown-source
+ no bridge-group 2 source-learning
+ no bridge-group 2 unicast-flooding
+ bridge-group 2 spanning-disabled
+!
+interface Dot11Radio0.50
+ encapsulation dot1Q 50
+ no ip route-cache
+ bridge-group 50
+ bridge-group 50 subscriber-loop-control
+ bridge-group 50 block-unknown-source
+ no bridge-group 50 source-learning
+ no bridge-group 50 unicast-flooding
+ bridge-group 50 spanning-disabled
+!
+interface Dot11Radio0.200
+ encapsulation dot1Q 200
+ no ip route-cache
+ bridge-group 200
+ bridge-group 200 subscriber-loop-control
+ bridge-group 200 block-unknown-source
+ no bridge-group 200 source-learning
+ no bridge-group 200 unicast-flooding
+ bridge-group 200 spanning-disabled
+!
+interface Dot11Radio0.201
+ encapsulation dot1Q 201
+ no ip route-cache
+ bridge-group 201
+ bridge-group 201 subscriber-loop-control
+ bridge-group 201 block-unknown-source
+ no bridge-group 201 source-learning
+ no bridge-group 201 unicast-flooding
+ bridge-group 201 spanning-disabled
+!
+interface FastEthernet0
+ no ip address
+ no ip route-cache
+ duplex auto
+ speed auto
+ bridge-group 1
+ no bridge-group 1 source-learning
+!
+interface FastEthernet0.2
+ encapsulation dot1Q 2
+ no ip route-cache
+ bridge-group 2
+ no bridge-group 2 source-learning
+ bridge-group 2 spanning-disabled
+!
+interface FastEthernet0.50
+ encapsulation dot1Q 50
+ no ip route-cache
+ bridge-group 50
+ no bridge-group 50 source-learning
+ bridge-group 50 spanning-disabled
+!
+interface FastEthernet0.200
+ encapsulation dot1Q 200
+ no ip route-cache
+ bridge-group 200
+ no bridge-group 200 source-learning
+ bridge-group 200 spanning-disabled
+!
+interface FastEthernet0.201
+ encapsulation dot1Q 201
+ no ip route-cache
+ bridge-group 201
+ no bridge-group 201 source-learning
+ bridge-group 201 spanning-disabled
+!
+interface BVI1
+ ip address 10.40.100.201 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.40.100.254
+no ip http server
+ip http secure-server
+ip http help-path http://www.cisco.com/warp/public/779/smbiz/prodconfig/help/eag
+!
+snmp-server community kn3lmgmt RO
+snmp-server location SATX
+snmp-server contact prodtechopsalerts@turnsys.com
+bridge 1 route ip
+!
+!
+banner login ^CC5
+===============================================================================
+-------------------------------------------------------------------------------
+RT - PRODUCTION SYSTEM - GO AWAY
+-------------------------------------------------------------------------------
+
+   This is a private computer system.
+===============================================================================
+^C
+!
+line con 0
+line vty 0 4
+ login local
+!
+no exception crashinfo
+sntp server 10.251.30.253
+end
+
