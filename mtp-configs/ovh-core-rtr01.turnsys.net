@@ -36,7 +36,7 @@
 		</user>
 		<nextuid>2000</nextuid>
 		<nextgid>2000</nextgid>
-		<timeservers>0.pfsense.pool.ntp.org</timeservers>
+		<timeservers>pfv-ucs.turnsys.net ovh-ucs.turnsys.net satx-ucs.turnsys.net</timeservers>
 		<webgui>
 			<protocol>https</protocol>
 			<loginautocomplete></loginautocomplete>
@@ -979,8 +979,8 @@
 		<dnssecstripped></dnssecstripped>
 	</unbound>
 	<revision>
-		<time>1518049988</time>
-		<description><![CDATA[admin@10.40.50.77: /system_usermanager.php made unknown change]]></description>
+		<time>1518204673</time>
+		<description><![CDATA[admin@10.40.50.77: Updated NTP ACL Settings]]></description>
 		<username>admin@10.40.50.77</username>
 	</revision>
 	<cert>
@@ -1242,4 +1242,15 @@
 			<fromaddress>ovh-core-rtr01@turnsys.net</fromaddress>
 		</smtp>
 	</notifications>
+	<ntpd>
+		<interface>lan</interface>
+		<noquery>yes</noquery>
+		<noserve>yes</noserve>
+		<restrictions>
+			<row>
+				<acl_network></acl_network>
+				<mask>128</mask>
+			</row>
+		</restrictions>
+	</ntpd>
 </pfsense>

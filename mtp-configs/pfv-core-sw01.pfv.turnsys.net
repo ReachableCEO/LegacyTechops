@@ -1,6 +1,6 @@
 !
-! Last configuration change at 22:40:16 CST Thu Feb 1 2018 by cisco
-! NVRAM config last updated at 20:34:03 CST Thu Feb 1 2018 by cisco
+! Last configuration change at 14:54:50 CST Fri Feb 9 2018 by cisco
+! NVRAM config last updated at 14:54:52 CST Fri Feb 9 2018 by cisco
 !
 version 12.2
 no service pad
@@ -92,7 +92,7 @@ interface FastEthernet0/3
  description printer-pi
  switchport access vlan 22
  spanning-tree portfast
-!         
+!
 interface FastEthernet0/4
  description pfv-ucs
  switchport trunk encapsulation dot1q
@@ -124,7 +124,7 @@ interface FastEthernet0/9
 interface FastEthernet0/10
  description ap4
  switchport access vlan 100
-!         
+!
 interface FastEthernet0/11
  description gallileo
  switchport access vlan 22
@@ -188,7 +188,7 @@ interface FastEthernet0/24
  switchport mode trunk
 !
 interface GigabitEthernet0/1
-!         
+!
 interface GigabitEthernet0/2
 !
 interface Vlan1
@@ -252,8 +252,10 @@ ip route 0.0.0.0 0.0.0.0 10.251.30.254
 no ip http server
 no ip http secure-server
 !
-!         
+!
 logging 10.253.3.99
+access-list 93 remark NTP access
+access-list 93 deny   any log
 snmp-server user kn3lmgmt kn3lmgmt v1 
 snmp-server user kn3lmgmt kn3lmgmt v2c 
 snmp-server community kn3lmgmt RO
@@ -270,8 +272,12 @@ line vty 0 4
  transport input all
 line vty 5 15
 !
-ntp clock-period 36029637
-ntp server 10.251.30.254
-ntp server 10.251.30.253
+ntp clock-period 36029657
+ntp access-group peer 93
+ntp access-group serve 93
+ntp access-group serve-only 93
+ntp server 10.253.3.201
+ntp server 10.40.100.200
+ntp server 10.251.30.71
 end
 

@@ -60,7 +60,7 @@ multilink bundle-name authenticated
 !
 !
 !
-!         
+!
 !
 !
 voice-card 0
@@ -118,6 +118,8 @@ no ip http secure-server
 !
 !
 logging 10.253.3.99
+access-list 93 remark NTP access
+access-list 93 deny   any log
 !
 !
 !
@@ -148,5 +150,11 @@ line vty 5 15
  login
 !
 scheduler allocate 20000 1000
+ntp access-group peer 93
+ntp access-group serve 93
+ntp access-group serve-only 93
+ntp server 10.251.30.71
+ntp server 10.40.100.200
+ntp server 10.253.3.201
 end
 

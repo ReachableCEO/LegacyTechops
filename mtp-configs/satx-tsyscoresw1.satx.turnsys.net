@@ -157,4 +157,7 @@ clock source sntp
 sntp client poll timer 60
 sntp unicast client enable
 sntp unicast client poll
+sntp server 10.40.100.200
+sntp server 10.251.30.71
+sntp server 10.253.3.201
 

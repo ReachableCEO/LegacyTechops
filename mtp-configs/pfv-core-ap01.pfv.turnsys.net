@@ -1,7 +1,7 @@
 !
-! Last configuration change at 20:32:33 CST Thu Feb 1 2018 by cisco
-! NVRAM config last updated at 20:32:36 CST Thu Feb 1 2018 by cisco
-! NVRAM config last updated at 20:32:36 CST Thu Feb 1 2018 by cisco
+! Last configuration change at 14:50:15 CST Fri Feb 9 2018 by cisco
+! NVRAM config last updated at 14:50:18 CST Fri Feb 9 2018 by cisco
+! NVRAM config last updated at 14:50:18 CST Fri Feb 9 2018 by cisco
 version 15.2
 no service pad
 service timestamps debug datetime msec
@@ -92,7 +92,7 @@ interface Dot11Radio0
  ssid TheNerdery
  !
  antenna gain 0
- mbssid   
+ mbssid
  speed  basic-1.0 basic-2.0 basic-5.5 basic-11.0 6.0 9.0 12.0 18.0 24.0 36.0 48.0 54.0
  channel 2422
  station-role root
@@ -188,7 +188,7 @@ interface GigabitEthernet0.200
  bridge-group 200
  bridge-group 200 spanning-disabled
  no bridge-group 200 source-learning
-!         
+!
 interface BVI1
  ip address 10.251.30.251 255.255.255.0
  no ip route-cache
@@ -225,6 +225,8 @@ line vty 0 4
  transport input all
 !
 no exception crashinfo
-sntp server 10.251.30.253
+sntp server 10.40.100.200
+sntp server 10.251.30.71
+sntp server 10.253.3.201
 end
 

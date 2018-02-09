@@ -121,16 +121,22 @@ username admin password a9166ce242b34acf0afb80b1092536bd level 15 encrypted
 snmp-server location satx
 snmp-server community kn3l rw 10.253.3.77 view DefaultSuper 
 snmp-server community kn3lmgmt ro view Default 
+clock timezone -6
+sntp client poll timer 120
+sntp unicast client enable
+sntp server 10.40.100.200
+sntp server 10.251.30.71
+sntp server 10.253.3.201
 ip domain-name turnsys.net
 
 
-
+                                            
 
 
 
 Default settings: 
 Service tag: CBRWFH1 
-                                            
+ 
 SW version 2.0.0.35 (date  27-Jan-2009 time  18:13:34) 
  
 Gigabit Ethernet Ports 
@@ -146,7 +152,7 @@ no back-pressure
 interface vlan 1 
 interface port-channel 1 - 8 
  
-spanning-tree 
+spanning-tree                               
 spanning-tree mode STP 
  
 qos basic 

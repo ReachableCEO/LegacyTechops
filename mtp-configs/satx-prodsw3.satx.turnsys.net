@@ -1,4 +1,7 @@
 !
+! Last configuration change at 20:06:32 UTC Fri Feb 9 2018 by cisco
+! NVRAM config last updated at 20:06:34 UTC Fri Feb 9 2018 by cisco
+!
 version 12.0
 no service pad
 service timestamps debug uptime
@@ -137,6 +140,8 @@ interface VLAN201
 !
 ip default-gateway 10.40.100.254
 logging 10.253.3.99
+access-list 93 remark NTP access
+access-list 93 deny   any log
 snmp-server engineID local 00000009020000053274C2C0
 snmp-server community kn3lmgmt RO
 snmp-server location SATX
@@ -150,5 +155,12 @@ line vty 0 4
  password 7 01100F175804
 line vty 5 15
 !
+ntp clock-period 11258997
+ntp access-group peer 93
+ntp access-group serve 93
+ntp access-group serve-only 93
+ntp server 10.253.3.201
+ntp server 10.40.100.200
+ntp server 10.251.30.71
 end
 
