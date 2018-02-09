@@ -1,3 +1,10 @@
 #!/bin/bash
 
-apt -y install htop glances sssd-ad dstat ladvd snmpd ntp
+ISUCS="$(hostname |grep ucs -c)"
+
+if [ $ISUCS -ne 0 ]; then
+	echo "Do not run this on ucs host. Exiting..."
+	exit 1
+fi
+
+apt -y install htop glances sssd-ad dstat ladvd snmpd ntp tcpdump autofs
