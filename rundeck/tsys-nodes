@@ -37,4 +37,7 @@ ovh-ucs.turnsys.net:
   hostname: ovh-ucs.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-
+rackrental-app.turnsys.net:
+  hostname: rackrental-app.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key

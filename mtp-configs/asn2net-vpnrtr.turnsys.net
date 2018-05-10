@@ -308,39 +308,6 @@
 		</rule>
 		<rule>
 			<id></id>
-			<tracker>1448729688</tracker>
-			<type>pass</type>
-			<interface>wan</interface>
-			<ipprotocol>inet</ipprotocol>
-			<tag></tag>
-			<tagged></tagged>
-			<max></max>
-			<max-src-nodes></max-src-nodes>
-			<max-src-conn></max-src-conn>
-			<max-src-states></max-src-states>
-			<statetimeout></statetimeout>
-			<statetype>keep state</statetype>
-			<os></os>
-			<protocol>tcp</protocol>
-			<source>
-				<any></any>
-			</source>
-			<destination>
-				<any></any>
-				<port>1198</port>
-			</destination>
-			<descr><![CDATA[DazzixNet VPN]]></descr>
-			<created>
-				<time>1448729688</time>
-				<username>brendan@108.90.6.147</username>
-			</created>
-			<updated>
-				<time>1448731171</time>
-				<username>brendan@108.90.6.147</username>
-			</updated>
-		</rule>
-		<rule>
-			<id></id>
 			<tracker>1496065921</tracker>
 			<type>pass</type>
 			<interface>wan</interface>
@@ -402,39 +369,6 @@
 			</updated>
 			<created>
 				<time>1496594797</time>
-				<username>admin@10.253.1.2</username>
-			</created>
-		</rule>
-		<rule>
-			<id></id>
-			<tracker>1496549172</tracker>
-			<type>pass</type>
-			<interface>wan</interface>
-			<ipprotocol>inet</ipprotocol>
-			<tag></tag>
-			<tagged></tagged>
-			<max></max>
-			<max-src-nodes></max-src-nodes>
-			<max-src-conn></max-src-conn>
-			<max-src-states></max-src-states>
-			<statetimeout></statetimeout>
-			<statetype>keep state</statetype>
-			<os></os>
-			<protocol>tcp</protocol>
-			<source>
-				<any></any>
-			</source>
-			<destination>
-				<any></any>
-				<port>1200</port>
-			</destination>
-			<descr><![CDATA[windows vps VPN]]></descr>
-			<updated>
-				<time>1496549172</time>
-				<username>admin@10.253.1.2</username>
-			</updated>
-			<created>
-				<time>1496549172</time>
 				<username>admin@10.253.1.2</username>
 			</created>
 		</rule>
@@ -534,39 +468,6 @@
 			<updated>
 				<time>1443323062</time>
 				<username>charles@108.90.6.147</username>
-			</updated>
-		</rule>
-		<rule>
-			<id></id>
-			<tracker>1446317032</tracker>
-			<type>pass</type>
-			<interface>wan</interface>
-			<ipprotocol>inet</ipprotocol>
-			<tag></tag>
-			<tagged></tagged>
-			<max></max>
-			<max-src-nodes></max-src-nodes>
-			<max-src-conn></max-src-conn>
-			<max-src-states></max-src-states>
-			<statetimeout></statetimeout>
-			<statetype>keep state</statetype>
-			<os></os>
-			<protocol>udp</protocol>
-			<source>
-				<any></any>
-			</source>
-			<destination>
-				<any></any>
-				<port>1196</port>
-			</destination>
-			<descr><![CDATA[Rainfay Site-to-site]]></descr>
-			<created>
-				<time>1446317032</time>
-				<username>charles@72.182.34.126</username>
-			</created>
-			<updated>
-				<time>1446321488</time>
-				<username>charles@72.182.34.126</username>
 			</updated>
 		</rule>
 		<rule>
@@ -1235,44 +1136,6 @@
 			<verbosity_level>1</verbosity_level>
 		</openvpn-server>
 		<openvpn-server>
-			<vpnid>3</vpnid>
-			<mode>p2p_shared_key</mode>
-			<protocol>UDP</protocol>
-			<dev_mode>tun</dev_mode>
-			<ipaddr></ipaddr>
-			<interface>wan</interface>
-			<local_port>1196</local_port>
-			<description><![CDATA[Rainfay site-to-site]]></description>
-			<custom_options></custom_options>
-			<shared_key>IwojIDIwNDggYml0IE9wZW5WUE4gc3RhdGljIGtleQojCi0tLS0tQkVHSU4gT3BlblZQTiBTdGF0aWMga2V5IFYxLS0tLS0KMjAzN2ViMTU2YzZjYTNmMGM4ZjBiYWU1MmI3M2M3NmYKOTFlMjZjOWZmZWRhODM5YzQ5OTU4NDBiMmJiNzRhNjMKNmU4NWE5MTA1ZTMyODM5Zjk1YWYwMDljOGI5NTYyZjUKZGFjMDA5YmI4ZmI1MjVlZjc0YWRlNjlkM2E4NDhjYWUKZWZhZThiNDEzZmVlZGU2NTA1ZTJmMjIxMGI4ZDhmYjgKNjZmY2MxMjllNTk3YmVmMDdhZTdhYzY1YjU0N2MwYjgKM2MwMDQ1N2RiZTM5YTZlNzQ3YmYzMDY2M2VmYTU4NGYKMWY0YjI2OGU2ZGI4YjFjNTlmNTZjNDg2MDRlYjM0ZmEKMjNlOGE2ZmM0ZjI2NmM1MzAwOGJmNjUzYmRjMDg0ZDQKNTUyYjQwMTFhYTJlMmI4NGQzYzhjZGVjZGVjYzBlZTAKNWEzZDEwYmExMWY4N2M2OTcyYjM0ODkzNjRkZWMxYmYKMDg2YTA3NjM3NTRjMWNkZWIxNzM0NzM4YTI5ZTkxZjkKMmY2ODM4N2EzZGJkMzUxMDZiZjEzN2U3M2U2M2UyYmEKMTY2MWI4ZmJmY2U1N2MwMDEyNWM1YjA2MTk0OTVjMDIKOTJjN2MwNzlhMTE1MzI3NWUyMjgwZWViNDUxNDI5ZTAKY2MzYTc0YjU3MDIxMjJiODc2OTYyMzM2OGM5NWYxODQKLS0tLS1FTkQgT3BlblZQTiBTdGF0aWMga2V5IFYxLS0tLS0K</shared_key>
-			<crypto>AES-128-CBC</crypto>
-			<digest>SHA1</digest>
-			<engine>none</engine>
-			<tunnel_network>192.168.196.0/30</tunnel_network>
-			<tunnel_networkv6></tunnel_networkv6>
-			<remote_network></remote_network>
-			<remote_networkv6></remote_networkv6>
-			<gwredir></gwredir>
-			<local_network></local_network>
-			<local_networkv6></local_networkv6>
-			<maxclients></maxclients>
-			<compression></compression>
-			<passtos></passtos>
-			<client2client></client2client>
-			<dynamic_ip></dynamic_ip>
-			<pool_enable>yes</pool_enable>
-			<serverbridge_dhcp></serverbridge_dhcp>
-			<serverbridge_interface>none</serverbridge_interface>
-			<serverbridge_dhcp_start></serverbridge_dhcp_start>
-			<serverbridge_dhcp_end></serverbridge_dhcp_end>
-			<netbios_enable></netbios_enable>
-			<netbios_ntype>0</netbios_ntype>
-			<netbios_scope></netbios_scope>
-			<no_tun_ipv6></no_tun_ipv6>
-			<verbosity_level>1</verbosity_level>
-			<topology>subnet</topology>
-		</openvpn-server>
-		<openvpn-server>
 			<vpnid>4</vpnid>
 			<mode>p2p_shared_key</mode>
 			<protocol>UDP</protocol>
@@ -1311,51 +1174,9 @@
 			<topology>subnet</topology>
 		</openvpn-server>
 		<openvpn-server>
-			<vpnid>5</vpnid>
-			<mode>p2p_tls</mode>
-			<protocol>TCP</protocol>
-			<dev_mode>tun</dev_mode>
-			<ipaddr></ipaddr>
-			<interface>wan</interface>
-			<local_port>1198</local_port>
-			<description><![CDATA[DazzixNet (Brendan)]]></description>
-			<custom_options></custom_options>
-			<caref>55f489fd77719</caref>
-			<crlref></crlref>
-			<certref>565eef8ab3359</certref>
-			<dh_length>1024</dh_length>
-			<cert_depth>1</cert_depth>
-			<crypto>BF-CBC</crypto>
-			<digest>SHA1</digest>
-			<engine>none</engine>
-			<tunnel_network>192.168.203.0/30</tunnel_network>
-			<tunnel_networkv6></tunnel_networkv6>
-			<remote_network></remote_network>
-			<remote_networkv6></remote_networkv6>
-			<gwredir></gwredir>
-			<local_network></local_network>
-			<local_networkv6></local_networkv6>
-			<maxclients></maxclients>
-			<compression></compression>
-			<passtos></passtos>
-			<client2client>yes</client2client>
-			<dynamic_ip></dynamic_ip>
-			<pool_enable>yes</pool_enable>
-			<serverbridge_dhcp></serverbridge_dhcp>
-			<serverbridge_interface>none</serverbridge_interface>
-			<serverbridge_dhcp_start></serverbridge_dhcp_start>
-			<serverbridge_dhcp_end></serverbridge_dhcp_end>
-			<netbios_enable></netbios_enable>
-			<netbios_ntype>0</netbios_ntype>
-			<netbios_scope></netbios_scope>
-			<no_tun_ipv6></no_tun_ipv6>
-			<verbosity_level>3</verbosity_level>
-			<topology>subnet</topology>
-		</openvpn-server>
-		<openvpn-server>
 			<vpnid>6</vpnid>
 			<mode>p2p_shared_key</mode>
-			<protocol>TCP</protocol>
+			<protocol>UDP</protocol>
 			<dev_mode>tun</dev_mode>
 			<ipaddr></ipaddr>
 			<interface>wan</interface>
@@ -1389,47 +1210,6 @@
 			<netbios_scope></netbios_scope>
 			<no_tun_ipv6></no_tun_ipv6>
 			<verbosity_level>3</verbosity_level>
-		</openvpn-server>
-		<openvpn-server>
-			<vpnid>7</vpnid>
-			<mode>p2p_shared_key</mode>
-			<protocol>TCP</protocol>
-			<dev_mode>tun</dev_mode>
-			<ipaddr></ipaddr>
-			<interface>wan</interface>
-			<local_port>1200</local_port>
-			<description><![CDATA[ovh windows vps]]></description>
-			<custom_options>push route 10.251.0.0 255.255.0.0;
-push route 10.253.0.0 255.255.0.0; 
-push route 10.40.0.0 255.255.0.0;
-push route 172.16.80.0 255.255.255.0;</custom_options>
-			<shared_key>Iw0KIyAyMDQ4IGJpdCBPcGVuVlBOIHN0YXRpYyBrZXkNCiMNCi0tLS0tQkVHSU4gT3BlblZQTiBTdGF0aWMga2V5IFYxLS0tLS0NCmRlNjY4NmRhMDJmN2Q3YzRkODk4ZDljNjMyMWFlNTZjDQo5ZDRjNTI3NjFiYzQ5ZWIzNzNiZDM5ZmE4MzgwYTY3ZQ0KMTlmMzdlODRjYmM4MTAxMTczNzYwZmIyZjZmMGQ3ZTINCmQyM2MxMjBmMjNlOWJkODIxZThhYjk2ZDhiYTM5N2MzDQpkZTFiZWJjNTlhMjg0MmI3NTJlZTM4NDgxMDVhYjgwNA0KN2Y1MjczMGZlMjgwMjJkYjkyMjgyZTExY2UzYTAzYzANCjQzNmU0YTJlY2ZhODliOWZhMzY1ZjEwOWM4OTgwYWJkDQozYzc4YmVjMTQzYjA1ODYyMmM1NGY2OGM4ZTQyYzMwNA0KODQ5ZTFlZDc3NTYxODFhNzAzODBlZWE5NDFhZjEzY2QNCjEyYWRjMWRkYTU3MDRmYTU3ZjI0ZGExMGMxZjIzNzFhDQplMGJlZjNjMTA4MDQwZjI3MDMyZGM5YjdiYTNhMTYwNA0KNDYyMzdjM2M3Yzc3NGI2MTY5ZjNkMmZjY2FiNTlmMjMNCjE3MDlmODA0NzRhN2MxYTc2ZjY4OWJjNzM0Y2NhYzY2DQpmMTZkNWViNzUwZjllMWI5ODc2YmY4MjQ1MzIwZDc0Mw0KOTk2MWZjNTdiNzg2NWRiYTJkNDI2ODRjMTQ0OTZmMTENCmFiMzI2Nzk5MDJjNDU5MDI3OTZkNzhmNTgwMzUwMGZlDQotLS0tLUVORCBPcGVuVlBOIFN0YXRpYyBrZXkgVjEtLS0tLQ0K</shared_key>
-			<crypto>AES-128-CBC</crypto>
-			<digest>SHA1</digest>
-			<engine>none</engine>
-			<tunnel_network>192.168.120.0/30</tunnel_network>
-			<tunnel_networkv6></tunnel_networkv6>
-			<remote_network></remote_network>
-			<remote_networkv6></remote_networkv6>
-			<gwredir></gwredir>
-			<local_network></local_network>
-			<local_networkv6></local_networkv6>
-			<maxclients></maxclients>
-			<compression></compression>
-			<passtos></passtos>
-			<client2client></client2client>
-			<dynamic_ip></dynamic_ip>
-			<pool_enable>yes</pool_enable>
-			<topology>subnet</topology>
-			<serverbridge_dhcp></serverbridge_dhcp>
-			<serverbridge_interface>none</serverbridge_interface>
-			<serverbridge_dhcp_start></serverbridge_dhcp_start>
-			<serverbridge_dhcp_end></serverbridge_dhcp_end>
-			<netbios_enable></netbios_enable>
-			<netbios_ntype>0</netbios_ntype>
-			<netbios_scope></netbios_scope>
-			<no_tun_ipv6></no_tun_ipv6>
-			<verbosity_level>1</verbosity_level>
 		</openvpn-server>
 		<openvpn-server>
 			<vpnid>8</vpnid>
@@ -1490,9 +1270,9 @@ push route 192.168.120.0 255.255.255.252</custom_options>
 		<dnssecstripped></dnssecstripped>
 	</unbound>
 	<revision>
-		<time>1518204775</time>
-		<description><![CDATA[admin@10.40.50.77: Updated NTP Server Settings]]></description>
-		<username>admin@10.40.50.77</username>
+		<time>1522801596</time>
+		<description><![CDATA[admin@10.251.100.101: /system_gateways_edit.php made unknown change]]></description>
+		<username>admin@10.251.100.101</username>
 	</revision>
 	<dhcpdv6></dhcpdv6>
 	<cert>
@@ -1564,10 +1344,10 @@ push route 192.168.120.0 255.255.255.252</custom_options>
 			<interface>wan</interface>
 			<gateway>158.69.183.166</gateway>
 			<name>WANGW</name>
-			<weight></weight>
+			<weight>1</weight>
 			<ipprotocol>inet</ipprotocol>
-			<interval></interval>
 			<descr></descr>
+			<monitor_disable></monitor_disable>
 			<defaultgw></defaultgw>
 		</gateway_item>
 	</gateways>
