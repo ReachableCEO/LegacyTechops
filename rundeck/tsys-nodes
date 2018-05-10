@@ -8,11 +8,21 @@ toolbox.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,ovh,virtual,infra'
-octopi.pfv.turnsys.net:
-  hostname: octopi.pfv.turnsys.net
+pfv-octopi.pfv.turnsys.net:
+  hostname: pfv-octopi.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'pfv,physical,infra,tsys'
+pfv-ucs.turnsys.net:
+  hostname: pfv-ucs.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'pfv,physical,infra,tsys'
+pfv-rrsvr.pfv.turnsys.net:
+  hostname: pfv-rrsvr.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'pfv,physical,infra,rr'
 satx-ucs.turnsys.net:
   hostname: satx-ucs.turnsys.net
   username: root
@@ -23,10 +33,6 @@ satx-time.satx.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,satx,physical,infra'
-pfv-ucs.turnsys.net:
-  hostname: pfv-ucs.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
 ovh-ucs.turnsys.net:
   hostname: ovh-ucs.turnsys.net
   username: root
