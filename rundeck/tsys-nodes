@@ -41,7 +41,9 @@ rackrental-app.turnsys.net:
   hostname: rackrental-app.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,rr'
 eveng-dev.turnsys.net:
   hostname: eveng-dev.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'prod,ovh,rr'
