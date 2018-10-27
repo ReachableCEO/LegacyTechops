@@ -24,6 +24,11 @@ pfv-rrsvr.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'pfv,physical,infra,rr'
+subodevlab.pfv.turnsys.net:
+  hostname: subodevlab.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'pfv,physical,infra,subo'
 pfv-doorman.pfv.turnsys.net:
   hostname: doorman.pfv.turnsys.net
   username: root
