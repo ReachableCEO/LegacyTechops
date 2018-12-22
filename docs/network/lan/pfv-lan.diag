@@ -1,0 +1,25 @@
+{
+ATTWAN [shape = cloud];
+ATTWAN -- ATTDSLModem
+
+network untrusted {
+  address = "192.168.1.x/24"
+
+      ATTDSLModem [address = ".254"];
+      pfv-core-rtr02 [address = ".70"];
+      pfv-core-rtr01 [address = ".71"];
+  }
+
+  network LAN-VLAN100 {
+	address = "10.251.100.x/24"
+	LANGW-RTR01 [address = ".252"];
+	LANGW-RTR02 [address = ".253"];
+	LANGW-FLOAT [address = ".254"];
+  }
+  network NERDBONE-VLAN200 {
+	address = "10.251.200.x/24"
+	NERDBONEGW-RTR01 [address = ".252"];
+	NERDBONEGW-RTR02 [address = ".253"];
+	NERDBONEGW-FLOAT [address = ".254"];
+  }
+}
