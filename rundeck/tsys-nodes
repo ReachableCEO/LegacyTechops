@@ -54,8 +54,8 @@ pfv-rrsvr.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'pfv,physical,infra'
-eveng-dev.turnsys.net:
-  hostname: eveng-dev.turnsys.net
+eveng-dev.pfv.turnsys.net:
+  hostname: eveng-dev.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,ovh,rr'
