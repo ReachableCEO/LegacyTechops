@@ -19,12 +19,16 @@ rackrental-app.turnsys.net:
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
   tags: 'prod,ovh,rr'
 
-
+pfv-stor.pfv.turnsys.net:
+  hostname: pfv-stor.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
+  tags: 'pfv,physical,infra,tsys'
 pfv-ucs.turnsys.net:
   hostname: pfv-ucs.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/tsys_root.key
-  tags: 'pfv,physical,infra,tsys'
+  tags: 'pfv,vm,infra,tsys'
 pfv-rrsvr.pfv.turnsys.net:
   hostname: pfv-rrsvr.pfv.turnsys.net
   username: root
