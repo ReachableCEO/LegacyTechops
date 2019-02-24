@@ -18,21 +18,26 @@ rackrental-app.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,rr'
-ovh-vmsrv.turnsys.net:
-  hostname: ovh-vmsrv.turnsys.net
+pfv-time.pfv.turnsys.net:
+  hostname: pfv-time.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,rr'
+  tags: 'pfv,physical,infra'
+pfv-power.pfv.turnsys.net:
+  hostname: pfv-power.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,physical,infra'
 pfv-stor.pfv.turnsys.net:
   hostname: pfv-stor.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,tsys'
-pfv-ucs.turnsys.net:
-  hostname: pfv-ucs.turnsys.net
+  tags: 'pfv,physical,infra'
+pfv-stor1.pfv.turnsys.net:
+  hostname: pfv-stor.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,vm,infra,tsys'
+  tags: 'pfv,physical,infra'
 pfv-rrsvr.pfv.turnsys.net:
   hostname: pfv-rrsvr.pfv.turnsys.net
   username: root
@@ -43,27 +48,6 @@ subo-devlab.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra,subo'
-pfv-doorman.pfv.turnsys.net:
-  hostname: doorman.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra'
-pfv-time.pfv.turnsys.net:
-  hostname: pfv-time.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra'
-pfv-rrsvr.pfv.turnsys.net:
-  hostname: pfv-rrsvr.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra'
-eveng-dev.pfv.turnsys.net:
-  hostname: eveng-dev.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,rr'
-
 subo1pm.pfv.turnsys.net:
   hostname: subo1pm.pfv.turnsys.net
   username: root
@@ -79,3 +63,18 @@ subo2ob.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo'
+pfv-doorman.pfv.turnsys.net:
+  hostname: doorman.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,physical,infra'
+pfv-ucs.turnsys.net:
+  hostname: pfv-ucs.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,vm,infra,tsys'
+eveng-dev.pfv.turnsys.net:
+  hostname: eveng-dev.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,rr'
