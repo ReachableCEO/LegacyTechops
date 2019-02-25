@@ -1,0 +1,30 @@
+#Official Turn Net Systems SSHD configuration
+#Created by Charles Wyble
+#Sourced from
+#https://stribika.github.io/2015/01/04/secure-secure-shell.html
+#https://infosec.mozilla.org/guidelines/openssh
+
+#Eliminated all the stock bits that had good/sane defaults, below values are set intentionally
+
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+PermitRootLogin without-password
+AuthenticationMethods publickey
+SyslogFacility AUTH
+LogLevel VERBOSE
+StrictModes yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+PermitEmptyPasswords no
+X11Forwarding no
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256
+PrintMotd yes
+Banner /etc/ssh/tsys-banner
+Subsystem       sftp    /usr/lib/openssh/sftp-server
+#Review the following:
+UsePAM yes
+AllowAgentForwarding yes
+
