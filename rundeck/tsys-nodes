@@ -18,6 +18,26 @@ rackrental-app.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,rr'
+esign.turnsys.com:
+  hostname: esign.turnsys.com
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,vps'
+conference.turnsys.com:
+  hostname: conference.turnsys.com
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,vps'
+community.turnsys.com:
+  hostname: community.turnsys.com
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,vps'
+fnfsrv.turnsys.com:
+  hostname: fnfsrv.turnsys.com
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,vps'
 pfv-time.pfv.turnsys.net:
   hostname: pfv-time.pfv.turnsys.net
   username: root
