@@ -7,11 +7,23 @@ if [ $ISUCS -ne 0 ]; then
 	exit 1
 fi
 
+MGMT_INT=$(netstat -rn|grep 0.0.0.0|head -n1|awk '{print $NF}')
+PFV_MGMT_IP=$(ifconfig $MGMT_INT|grep inet|grep 10.251 -c)
+OVH_MGMT_IP=$(ifconfig $MGMT_INT|grep inet|grep 10.253 -c)
+
+if [ $PFV_MGMT_IP -eq 1 ]; then
+	tsysSysLocation=pfv
+fi
+
+if [ $OVH_MGMT_IP -eq 1 ]; then
+	tsysSysLocation=ovh
+fi
+
 apt-get update
 apt-get -y --purge autoremove
 apt-get -y autoclean
 apt-get -y upgrade
 apt-get -y dist-upgrade
-apt -y install htop glances dstat ladvd snmpd ntp tcpdump autofs logwatch molly-guard
+apt -y install htop glances dstat ladvd snmpd ntp tcpdump autofs logwatch molly-guard etckeeper auditd rkhunter rsyslog
 
-slack tsys-base-$tsysSysLocation
+slack tsys-$tsysSysLocation
