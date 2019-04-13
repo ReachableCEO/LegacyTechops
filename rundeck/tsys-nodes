@@ -110,11 +110,11 @@ eveng-dev.pfv.turnsys.net:
   tags: 'prod,ovh,rr'
 pfv-monomini.pfv.turnsys.net:
   hostname: pfv-octopi-monomini.pfv.turnsys.net
-  username: pi
+  username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,axios,pfv,physical'
 pfv-monodelta.pfv.turnsys.net:
   hostname: pfv-octopi-monodelta.pfv.turnsys.net
-  username: pi
+  username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,axios,pfv,physical'
