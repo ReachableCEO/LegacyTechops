@@ -78,8 +78,18 @@ subo2gs.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo'
+subo2pl.pfv.turnsys.net:
+  hostname: subo2pl.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,physical,subo'
 subo2ob.pfv.turnsys.net:
   hostname: subo2ob.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,physical,subo'
+subo1ob.pfv.turnsys.net:
+  hostname: subo1ob.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo'
