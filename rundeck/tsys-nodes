@@ -43,8 +43,8 @@ pfv-time.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra'
-pfv-power.pfv.turnsys.net:
-  hostname: pfv-power.pfv.turnsys.net
+pfv-time1.pfv.turnsys.net:
+  hostname: pfv-time1.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra'
