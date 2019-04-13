@@ -108,3 +108,13 @@ eveng-dev.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,rr'
+pfv-monomini.pfv.turnsys.net:
+  hostname: prv-monomini.pfv.turnsys.net
+  username: pi
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,axios,pfv,physical'
+pfv-monodelta.pfv.turnsys.net:
+  hostname: prv-monodelta.pfv.turnsys.net
+  username: pi
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,axios,pfv,physical'
