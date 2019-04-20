@@ -118,3 +118,8 @@ pfv-monodelta.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,axios,pfv,physical'
+pfv-octopi-reprap.pfv.turnsys.net:
+  hostname: pfv-octopi-reprap.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,axios,pfv,physical'
