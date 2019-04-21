@@ -10,7 +10,7 @@
 export MGMT_INT="$(netstat -rn |grep 0.0.0.0|awk '{print $NF}' |head -n1 )"
 export MGMT_IP="$(ifconfig eth0|grep inet|awk '{print $2}'|head -n1)"
 
-export DIST_SERVER="http://tsys-techops.turnsys.net/"
+export DIST_SERVER="http://techops.turnsys.net/"
 export DIST_ROOT_PATH="slack-dist"
 
 #######################################################################################################################################################
@@ -33,37 +33,38 @@ export DIST_ROOT_PATH="slack-dist"
 
 
 
-case $server_type in
-        abc)
-                export SERVER_TYPE="abc"
-                ;;
-        xxx)
-                export SERVER_TYPE="xxx"
-                ;;
-        yyy)
-                export SERVER_TYPE="yyy"
-                ;;
-        *)
-                export SERVER_TYPE="prod"
-                ;;
-esac
+#case $server_type in
+#        abc)
+#                export SERVER_TYPE="abc"
+#                ;;
+#        xxx)
+#                export SERVER_TYPE="xxx"
+#                ;;
+#        yyy)
+#                export SERVER_TYPE="yyy"
+#                ;;
+#        *)
+#                export SERVER_TYPE="prod"
+#                ;;
+#esac
 
+export SERVER_TYPE="prod"
 
 
 #######################################################################################################################################################
 #Step 2: Fixup the /etc/hosts file
 #######################################################################################################################################################
 #Static /etc/hosts bits
-cat  > /etc/hosts << HOSTFILESTATIC
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-HOSTFILESTATIC
+#cat  > /etc/hosts << HOSTFILESTATIC
+#127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+#::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+#HOSTFILESTATIC
 
 #Dynamic /etc/hosts bits
-cat >> /etc/hosts <<HOSTFILEDYNAMIC
-127.0.1.1 $(hostname) $(hostname -s) 
-$MGMT_IP $(hostname) $(hostname -s) 
-HOSTFILEDYNAMIC
+#cat >> /etc/hosts <<HOSTFILEDYNAMIC
+#127.0.1.1 $(hostname) $(hostname -s) 
+#$MGMT_IP $(hostname) $(hostname -s) 
+#HOSTFILEDYNAMIC
 
 #######################################################################################################################################################
 #Step 3: Grab slack runtime bits and deploy slack
