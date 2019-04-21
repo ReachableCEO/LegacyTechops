@@ -31,6 +31,41 @@ if [ $OVH_MGMT_IP -eq 1 ]; then
 fi
 
 
+#######################################################################################################################################################
+#Fixup the /etc/hosts file
+#######################################################################################################################################################
+
+
+
+if [ $PFV_MGMT_IP -eq 1 ]; then
+#Static /etc/hosts bits
+cat  > /etc/hosts << HOSTFILESTATIC
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+HOSTFILESTATIC
+
+#Dynamic /etc/hosts bits
+cat >> /etc/hosts <<HOSTFILEDYNAMIC
+127.0.1.1 $(hostname).pfv.turnsys.net $(hostname -s)
+HOSTFILEDYNAMIC
+
+fi
+
+if [ $OVH_MGMT_IP -eq 1 ]; then
+#Static /etc/hosts bits
+cat  > /etc/hosts << HOSTFILESTATIC
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+HOSTFILESTATIC
+
+#Dynamic /etc/hosts bits
+cat >> /etc/hosts <<HOSTFILEDYNAMIC
+127.0.1.1 $(hostname).turnsys.net $(hostname -s)
+HOSTFILEDYNAMIC
+
+fi
+
+
 
 #Step 1: Update the cache and apply all vendor patches
 echo "Running apt-get update"
@@ -56,6 +91,8 @@ export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::=
 git config --global user.email "techops@turnsys.com"
 git config --global user.name "Techops"
 
+
+hostname -f > /etc/mailname
 
 #Step 3: The usual suspects
 export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd ncdu iftop nethogs screen acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard mailutils ladvd auditd rkhunter rsyslog ngrep ntp nut-client lm-sensors zlib1g-dev uuid-dev libmnl-dev gcc make autoconf autoconf-archive autogen automake pkg-config curl
