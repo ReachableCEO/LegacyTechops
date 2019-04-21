@@ -8,7 +8,7 @@
 
 
 export MGMT_INT="$(netstat -rn |grep 0.0.0.0|awk '{print $NF}' |head -n1 )"
-export MGMT_IP="$(ifconfig eth0|grep inet|awk '{print $2}'|head -n1)"
+export MGMT_IP="$(ifconfig $MGMT_INT |grep inet|awk '{print $2}'|head -n1)"
 
 export DIST_SERVER="https://techops.turnsys.net/"
 export DIST_ROOT_PATH="slack-dist"
