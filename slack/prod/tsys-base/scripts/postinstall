@@ -30,6 +30,8 @@ if [ $OVH_MGMT_IP -eq 1 ]; then
 	tsysSysLocation=ovh
 fi
 
+newaliases
+
 #/usr/local/bin/up2date.sh
 
 #apt-get update
