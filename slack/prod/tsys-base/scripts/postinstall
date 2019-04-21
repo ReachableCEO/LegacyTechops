@@ -34,29 +34,22 @@ fi
 
 #Step 1: Update the cache and apply all vendor patches
 echo "Running apt-get update"
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes update
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" update
 
 echo "Running apt-get dist-upgrade"
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes dist-upgrade
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" dist-upgrade
 
 echo "Running apt-get upgrade"
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes upgrade
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" upgrade
 
 
 echo "Running apt-get purge"
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --purge autoremove --yes
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --purge -o Dpkg::Options::="--force-confold" autoremove --yes
 
 
 #Step 2: Cleanup default cruft
 echo "removing evil from the world, one nano install at a time"
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --purge remove nano resolvconf
-
-if [ $UBUNTU_SERVER -eq 0 ]; then
-sed -i "s/dns=dnsmasq/#dns=dnsmasq/" /etc/NetworkManager/NetworkManager.conf
-fi
-
-unlink /etc/resolv.conf
-ln -s /etc/tplab-resolv.conf /etc/resolv.conf
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --purge -o Dpkg::Options::="--force-confold" remove nano resolvconf
 
 export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install git etckeeper
 
