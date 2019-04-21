@@ -69,7 +69,7 @@ export SERVER_TYPE="prod"
 #######################################################################################################################################################
 #Step 3: Grab slack runtime bits and deploy slack
 #######################################################################################################################################################
-curl --insecure -q $DIST_SERVER/$DIST_ROOT_PATH/distro  > /usr/bin/distro 
+curl --insecure -q $DIST_SERVER/$DIST_ROOT_PATH/bin/distro  > /usr/bin/distro 
 chmod +x /usr/bin/distro
 
 apt-get -y install make perl rsync
