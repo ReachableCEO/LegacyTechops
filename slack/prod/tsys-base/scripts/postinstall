@@ -17,7 +17,6 @@ fi
 
 unlink /etc/localtime
 ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
-apt -y install htop glances dstat ladvd snmpd ntp tcpdump autofs logwatch molly-guard etckeeper auditd rkhunter rsyslog ngrep screen
 
 MGMT_INT=$(netstat -rn|grep 0.0.0.0|head -n1|awk '{print $NF}')
 PFV_MGMT_IP=$(ifconfig $MGMT_INT|grep inet|grep 10.251 -c)
@@ -32,10 +31,45 @@ if [ $OVH_MGMT_IP -eq 1 ]; then
 fi
 
 #/usr/local/bin/up2date.sh
+
 #apt-get update
 #apt-get -y --purge autoremove
 #apt-get -y autoclean
 #apt-get -y upgrade
 #apt-get -y dist-upgrade
+
+
+#Step 1: Update the cache and apply all vendor patches
+echo "Running apt-get update"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes update
+
+echo "Running apt-get dist-upgrade"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes dist-upgrade
+
+echo "Running apt-get upgrade"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes upgrade
+
+
+echo "Running apt-get purge"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --purge autoremove --yes
+
+
+#Step 2: Cleanup default cruft
+echo "removing evil from the world, one nano install at a time"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --purge remove nano
+
+if [ $UBUNTU_SERVER -eq 0 ]; then
+sed -i "s/dns=dnsmasq/#dns=dnsmasq/" /etc/NetworkManager/NetworkManager.conf
+fi
+
+unlink /etc/resolv.conf
+ln -s /etc/tplab-resolv.conf /etc/resolv.conf
+
+#Step 3: The usual suspects
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd sssd sssd-ad ncdu iftop nethogs screen open-vm-tools acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard git mailutils ladvd etckeeper auditd rkhunter rsyslog ngrep ntp
+
+#Turn on process accounting
+echo "Turning on process accounting..."
+accton on
 
 slack tsys-$tsysSysLocation
