@@ -31,14 +31,6 @@ if [ $OVH_MGMT_IP -eq 1 ]; then
 fi
 
 
-#/usr/local/bin/up2date.sh
-
-#apt-get update
-#apt-get -y --purge autoremove
-#apt-get -y autoclean
-#apt-get -y upgrade
-#apt-get -y dist-upgrade
-
 
 #Step 1: Update the cache and apply all vendor patches
 echo "Running apt-get update"
@@ -67,7 +59,7 @@ unlink /etc/resolv.conf
 ln -s /etc/tplab-resolv.conf /etc/resolv.conf
 
 #Step 3: The usual suspects
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd sssd sssd-ad ncdu iftop nethogs screen open-vm-tools acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard git mailutils ladvd etckeeper auditd rkhunter rsyslog ngrep ntp
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd sssd sssd-ad ncdu iftop nethogs screen acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard git mailutils ladvd etckeeper auditd rkhunter rsyslog ngrep ntp
 
 #Turn on process accounting
 echo "Turning on process accounting..."
