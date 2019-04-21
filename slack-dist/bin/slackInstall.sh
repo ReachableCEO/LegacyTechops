@@ -10,7 +10,7 @@
 export MGMT_INT="$(netstat -rn |grep 0.0.0.0|awk '{print $NF}' |head -n1 )"
 export MGMT_IP="$(ifconfig eth0|grep inet|awk '{print $2}'|head -n1)"
 
-export DIST_SERVER="http://techops.turnsys.net/"
+export DIST_SERVER="https://techops.turnsys.net/"
 export DIST_ROOT_PATH="slack-dist"
 
 #######################################################################################################################################################
@@ -69,13 +69,13 @@ export SERVER_TYPE="prod"
 #######################################################################################################################################################
 #Step 3: Grab slack runtime bits and deploy slack
 #######################################################################################################################################################
-curl -q $DIST_SERVER/$DIST_ROOT_PATH/distro  > /usr/bin/distro 
+curl --insecure -q $DIST_SERVER/$DIST_ROOT_PATH/distro  > /usr/bin/distro 
 chmod +x /usr/bin/distro
 
 apt-get -y install make perl rsync
 
 mkdir /tmp/slackDist
-wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/slackDist.tar.gz -O /tmp/slackDist/slackDist.tar.gz
+wget --quiet --no-check-certificate $DIST_SERVER/$DIST_ROOT_PATH/slackDist.tar.gz -O /tmp/slackDist/slackDist.tar.gz
 cd /tmp/slackDist
 tar xvfz slackDist.tar.gz
 make install
@@ -88,8 +88,8 @@ chown -R root:root /root/.ssh
 
 echo "Server type:" $SERVER_TYPE
 
-wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackConfig-$SERVER_TYPE.config -O /etc/slack.conf
-wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.config -O /root/.ssh/config
-wget --quiet $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SERVER_TYPE.key
+wget --quiet --no-check-certificate $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackConfig-$SERVER_TYPE.config -O /etc/slack.conf
+wget --quiet --no-check-certificate $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.config -O /root/.ssh/config
+wget --quiet --no-check-certificate $DIST_SERVER/$DIST_ROOT_PATH/env/$SERVER_TYPE/SlackSSH-$SERVER_TYPE.key -O /root/.ssh/SlackSSH-$SERVER_TYPE.key
 chmod 400 /root/.ssh/SlackSSH-$SERVER_TYPE.key
 chmod 400 /root/.ssh/config
