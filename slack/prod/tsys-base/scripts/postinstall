@@ -30,7 +30,6 @@ if [ $OVH_MGMT_IP -eq 1 ]; then
 	tsysSysLocation=ovh
 fi
 
-newaliases
 
 #/usr/local/bin/up2date.sh
 
@@ -73,5 +72,7 @@ export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::=
 #Turn on process accounting
 echo "Turning on process accounting..."
 accton on
+
+newaliases
 
 slack tsys-$tsysSysLocation
