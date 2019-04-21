@@ -58,6 +58,12 @@ fi
 unlink /etc/resolv.conf
 ln -s /etc/tplab-resolv.conf /etc/resolv.conf
 
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install git etckeeper
+
+git config --global user.email "techops@turnsys.com"
+git config --global user.name "Techops"
+
+
 #Step 3: The usual suspects
 export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd ncdu iftop nethogs screen acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard git mailutils ladvd etckeeper auditd rkhunter rsyslog ngrep ntp nut-client lm-sensors zlib1g-dev uuid-dev libmnl-dev gcc make autoconf autoconf-archive autogen automake pkg-config curl
 
