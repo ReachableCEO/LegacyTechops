@@ -1,7 +1,16 @@
 #!/bin/bash
 
-apt-get update
-apt-get -y --purge autoremove
-apt-get -y autoclean
-apt-get -y upgrade
-apt-get -y dist-upgrade
+#Step 1: Update the cache and apply all vendor patches
+echo "Running apt-get update"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes update
+
+echo "Running apt-get dist-upgrade"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes dist-upgrade
+
+echo "Running apt-get upgrade"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes upgrade
+
+
+echo "Running apt-get purge"
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --purge autoremove --yes
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq autoclean --yes
