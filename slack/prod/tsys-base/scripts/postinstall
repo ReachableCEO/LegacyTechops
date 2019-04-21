@@ -31,11 +31,11 @@ if [ $OVH_MGMT_IP -eq 1 ]; then
 	tsysSysLocation=ovh
 fi
 
-/usr/local/bin/up2date.sh
-apt-get update
-apt-get -y --purge autoremove
-apt-get -y autoclean
-apt-get -y upgrade
-apt-get -y dist-upgrade
+#/usr/local/bin/up2date.sh
+#apt-get update
+#apt-get -y --purge autoremove
+#apt-get -y autoclean
+#apt-get -y upgrade
+#apt-get -y dist-upgrade
 
 slack tsys-$tsysSysLocation
