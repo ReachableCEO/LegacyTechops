@@ -49,7 +49,7 @@ export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --purge -o Dpkg::Options:
 
 #Step 2: Cleanup default cruft
 echo "removing evil from the world, one nano install at a time"
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --purge -o Dpkg::Options::="--force-confold" remove nano resolvconf
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes --purge -o Dpkg::Options::="--force-confold" remove nano resolvconf openresolv
 
 export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install git etckeeper
 
