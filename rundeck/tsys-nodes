@@ -13,11 +13,11 @@ ovh-ucs.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,virtual,infra'
-rackrental-app.turnsys.net:
-  hostname: rackrental-app.turnsys.net
+ovh-dc-01.turnsys.net:
+  hostname: ovh-dc-01.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,rr'
+  tags: 'prod,ovh,virtual,infra'
 esign.turnsys.com:
   hostname: esign.turnsys.com
   username: root
@@ -33,8 +33,13 @@ community.turnsys.com:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps'
-fnfsrv.turnsys.com:
-  hostname: fnfsrv.turnsys.com
+fnfmail.thefnf.org:
+  hostname: fnfmail.thefnf.org
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh-vps'
+fnfwww.turnsys.com:
+  hostname: fnfwww.thefnf.org
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps'
