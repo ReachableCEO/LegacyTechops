@@ -20,7 +20,7 @@ ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
 
 MGMT_INT=$(netstat -rn|grep 0.0.0.0|head -n1|awk '{print $NF}')
 PFV_MGMT_IP=$(ifconfig $MGMT_INT|grep inet|grep 10.251 -c)
-OVH_MGMT_IP=$(ifconfig $MGMT_INT|grep inet|grep 10.253 -c)
+OVH_MGMT_IP=$(ifconfig $MGMT_INT|grep inet|grep 10.222 -c)
 
 if [ $PFV_MGMT_IP -eq 1 ]; then
 	tsysSysLocation=pfv
