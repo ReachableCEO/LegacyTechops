@@ -8,6 +8,11 @@ toolbox.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,virtual,infra'
+odoo.turnsys.net:
+  hostname: odoo.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
 ovh-ucs.turnsys.net:
   hostname: ovh-ucs.turnsys.net
   username: root
