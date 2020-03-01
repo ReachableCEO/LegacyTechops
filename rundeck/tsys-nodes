@@ -23,6 +23,11 @@ ovh-dc-01.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,virtual,infra'
+ovh-dc-02.turnsys.net:
+  hostname: ovh-dc-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
 esign.turnsys.com:
   hostname: esign.turnsys.com
   username: root
