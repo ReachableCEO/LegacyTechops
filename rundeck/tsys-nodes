@@ -88,8 +88,8 @@ ovh-wwwsrv-02.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,virtual,infra'
-fnfmail.thefnf.org:
-  hostname: fnfmail.thefnf.org
+lists.thefnf.org:
+  hostname: lists.thefnf.org
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps'
