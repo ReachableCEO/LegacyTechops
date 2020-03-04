@@ -95,7 +95,7 @@ git config --global user.name "Techops"
 hostname -f > /etc/mailname
 
 #Step 3: The usual suspects
-export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd ncdu iftop nethogs screen acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard mailutils ladvd auditd rkhunter rsyslog ngrep ntp nut-client lm-sensors zlib1g-dev uuid-dev libmnl-dev gcc make autoconf autoconf-archive autogen automake pkg-config curl python-dnspython python-mysqldb libmnl
+export DEBIAN_FRONTEND="noninteractive" && apt-get -qq --yes -o Dpkg::Options::="--force-confold" install snmpd ncdu iftop nethogs screen acct tshark tcpdump glances dstat htop sysdig sysstat rsync clamav logwatch zsh sl postfix molly-guard mailutils ladvd auditd rkhunter rsyslog ngrep ntp nut-client lm-sensors zlib1g-dev uuid-dev libmnl-dev gcc make autoconf autoconf-archive autogen automake pkg-config curl python-dnspython python-mysqldb 
 
 # download it - the directory 'netdata' will be created
 cd /root
