@@ -28,6 +28,76 @@ ovh-dc-02.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,virtual,infra'
+ovh-rrmwsrv-01.turnsys.net:
+  hostname: ovh-rrmwsrv-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-rrmwsrv-02.turnsys.net:
+  hostname: ovh-rrmwsrv-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-rrappsrv-01.turnsys.net:
+  hostname: ovh-rrappsrv-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-rrappsrv-02.turnsys.net:
+  hostname: ovh-rrappsrv-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-db-01.turnsys.net:
+  hostname: ovh-db-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-db-02.turnsys.net:
+  hostname: ovh-db-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-polwwwsrv-01.turnsys.net:
+  hostname: ovh-polwwwsrv-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-polwwwsrv-02.turnsys.net:
+  hostname: ovh-polwwwsrv-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-rrwwwsrv-01.turnsys.net:
+  hostname: ovh-rrwwwsrv-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-rrwwwsrv-02.turnsys.net:
+  hostname: ovh-rrwwwsrv-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-wwwsrv-01.turnsys.net:
+  hostname: ovh-wwwsrv-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+ovh-wwwsrv-02.turnsys.net:
+  hostname: ovh-wwwsrv-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,virtual,infra'
+fnfmail.thefnf.org:
+  hostname: fnfmail.thefnf.org
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh-vps'
+fnfwww.thefnf.org:
+  hostname: fnfwww.thefnf.org
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh-vps'
 esign.turnsys.com:
   hostname: esign.turnsys.com
   username: root
@@ -43,13 +113,13 @@ community.turnsys.com:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps'
-fnfmail.thefnf.org:
-  hostname: fnfmail.thefnf.org
+sipwise.turnsys.com:
+  hostname: sipwise.turnsys.com
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps'
-fnfwww.turnsys.com:
-  hostname: fnfwww.thefnf.org
+pwvault.turnsys.com:
+  hostname: pwvault.turnsys.com
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps'
@@ -113,11 +183,6 @@ pfv-doorman.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra'
-pfv-ucs.turnsys.net:
-  hostname: pfv-ucs.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,vm,infra,tsys'
 eveng-dev.pfv.turnsys.net:
   hostname: eveng-dev.pfv.turnsys.net
   username: root
