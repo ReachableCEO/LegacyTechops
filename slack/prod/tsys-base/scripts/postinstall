@@ -103,7 +103,7 @@ git clone https://github.com/netdata/netdata.git --depth=100
 cd netdata
 
 # run script with root privileges to build, install, start Netdata
-./netdata-installer.sh -u --dont-wait --stable-channel
+./netdata-installer.sh --disable-cloud -u --dont-wait --stable-channel
 
 
 #Turn on process accounting
