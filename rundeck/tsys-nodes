@@ -109,7 +109,7 @@ conference.turnsys.com:
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps,oam'
 community.turnsys.com:
-  hostname: ovhinti-community.turnsys.net
+  hostname: ovhint-community.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh-vps,oam'
