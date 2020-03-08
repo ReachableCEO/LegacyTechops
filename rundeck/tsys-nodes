@@ -42,7 +42,7 @@ ovh-rrappsrv-01.turnsys.net:
   hostname: ovh-rrappsrv-01.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,rr,infra,oam,netdata'
+  tags: 'prod,ovh,rr,infra,oam-rhel,netdata'
 ovh-rrappsrv-02.turnsys.net:
   hostname: ovh-rrappsrv-02.turnsys.net
   username: root
