@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "stopping netdata..."
+service netdata stop
+
+echo "starting netdata..."
+service netdata start
