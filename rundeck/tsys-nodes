@@ -123,13 +123,18 @@ pfv-time2.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra,oam,netdata'
-pfv-stor.pfv.turnsys.net:
-  hostname: pfv-stor.pfv.turnsys.net
+pfv-time3.pfv.turnsys.net:
+  hostname: pfv-time3.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra,oam,netdata'
 pfv-stor1.pfv.turnsys.net:
-  hostname: pfv-stor.pfv.turnsys.net
+  hostname: pfv-stor1.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,physical,infra,oam,netdata'
+pfv-stor2.pfv.turnsys.net:
+  hostname: pfv-stor2.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra,oam,netdata'
@@ -138,33 +143,18 @@ pfv-rrsvr.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra,rr,oam,netdata'
-subo-devlab.pfv.turnsys.net:
-  hostname: subo-devlab.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,subo,oam,netdata'
-subo1pm.pfv.turnsys.net:
-  hostname: subo1pm.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,subo,oam,netdata'
-subo2gs.pfv.turnsys.net:
+subogs2.pfv.turnsys.net:
   hostname: subo2gs.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo,oam,netdata'
-subo2pl.pfv.turnsys.net:
-  hostname: subo2pl.pfv.turnsys.net
+suboss1.pfv.turnsys.net:
+  hostname: suboss1.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo,oam,netdata'
-subo2ob.pfv.turnsys.net:
-  hostname: subo2ob.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,subo,oam,netdata'
-subo1ob.pfv.turnsys.net:
-  hostname: subo1ob.pfv.turnsys.net
+suboss2.pfv.turnsys.net:
+  hostname: suboss2.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo,oam,netdata'
