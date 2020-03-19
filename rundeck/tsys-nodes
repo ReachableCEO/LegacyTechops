@@ -158,11 +158,6 @@ suboss2.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,subo,oam,netdata'
-pfv-monomini.pfv.turnsys.net:
-  hostname: pfv-octopi-monomini.pfv.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,axios,pfv,physical,oam,netdata'
 pfv-monodelta.pfv.turnsys.net:
   hostname: pfv-octopi-monodelta.pfv.turnsys.net
   username: root
