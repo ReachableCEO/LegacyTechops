@@ -158,6 +158,11 @@ pfv-rrsvr.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,infra,rr,oam,netdata'
+jetsonrr.turnsys.net:
+  hostname: jetsonrr.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,physical,infra,rr,oam,netdata'
 subogs2.pfv.turnsys.net:
   hostname: subogs2.pfv.turnsys.net
   username: root
