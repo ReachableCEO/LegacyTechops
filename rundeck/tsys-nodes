@@ -118,21 +118,31 @@ pfvlab.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,physical,oam,netdata'
+pfv-dc-01.turnsys.net:
+  hostname: pfv-dc-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,infra,netdata'
+pfv-dc-02.turnsys.net:
+  hostname: pfv-dc-02.pfv.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'pfv,infra,netdata'
 pfv-time1.pfv.turnsys.net:
   hostname: pfv-time1.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,oam,netdata'
+  tags: 'pfv,physical,infra,netdata'
 pfv-time2.pfv.turnsys.net:
   hostname: pfv-time2.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,oam,netdata'
+  tags: 'pfv,physical,infra,netdata'
 pfv-time3.pfv.turnsys.net:
   hostname: pfv-time3.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,oam,netdata'
+  tags: 'pfv,physical,infra,netdata'
 pfv-stor1.pfv.turnsys.net:
   hostname: pfv-stor1.pfv.turnsys.net
   username: root
