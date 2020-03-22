@@ -183,8 +183,8 @@ pfv-monodelta.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,axios,pfv,physical,oam,netdata'
-doorman.pfv.turnsys.net:
-  hostname: doorman.pfv.turnsys.net
+pfv-doorman.pfv.turnsys.net:
+  hostname: pfv-doorman.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,pfv,physical,oam,netdata'
