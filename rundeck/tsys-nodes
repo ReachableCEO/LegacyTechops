@@ -124,7 +124,7 @@ pfv-dc-01.turnsys.net:
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,infra,netdata'
 pfv-dc-02.turnsys.net:
-  hostname: pfv-dc-02.pfv.turnsys.net
+  hostname: pfv-dc-02.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'pfv,infra,netdata'
