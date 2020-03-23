@@ -7,7 +7,7 @@ ovh-ucs.turnsys.net:
   hostname: ovh-ucs.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,infra,netdata'
+  tags: 'prod,ovh,infra,netdata,ucs'
 ovh-dc-01.turnsys.net:
   hostname: ovh-dc-01.turnsys.net
   username: root
