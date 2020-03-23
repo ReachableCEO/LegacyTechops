@@ -1,3 +1,4 @@
+##
 toolbox.turnsys.net:
   hostname: toolbox.turnsys.net
   username: root
@@ -132,27 +133,27 @@ pfv-time1.pfv.turnsys.net:
   hostname: pfv-time1.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,netdata'
+  tags: 'pfv,physical,infra,netdata,timesrv'
 pfv-time2.pfv.turnsys.net:
   hostname: pfv-time2.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,netdata'
+  tags: 'pfv,physical,infra,netdata,timesrv'
 pfv-time3.pfv.turnsys.net:
   hostname: pfv-time3.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,netdata'
+  tags: 'pfv,physical,infra,netdata,timesrv'
 pfv-rrsvr.pfv.turnsys.net:
   hostname: pfv-rrsvr.pfv.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,rr,oam,netdata'
+  tags: 'pfv,physical,rr,oam,netdata'
 jetsonrr.turnsys.net:
   hostname: jetsonrr.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,physical,infra,rr,oam,netdata'
+  tags: 'pfv,physical,rr,oam,netdata'
 subogs2.pfv.turnsys.net:
   hostname: subogs2.pfv.turnsys.net
   username: root
