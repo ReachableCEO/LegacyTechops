@@ -12,12 +12,22 @@ ovh-dc-01.turnsys.net:
   hostname: ovh-dc-01.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,infra,netdata'
+  tags: 'prod,ovh,infra,netdata,ucs'
 ovh-dc-02.turnsys.net:
   hostname: ovh-dc-02.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,infra,netdata'
+  tags: 'prod,ovh,infra,netdata,ucs'
+pfv-dc-01.turnsys.net:
+  hostname: pfv-dc-01.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,infra,netdata,ucs'
+pfv-dc-02.turnsys.net:
+  hostname: pfv-dc-02.turnsys.net
+  username: root
+  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
+  tags: 'prod,ovh,infra,netdata,ucs'
 odoo.turnsys.net:
   hostname: odoo.turnsys.net
   username: root
