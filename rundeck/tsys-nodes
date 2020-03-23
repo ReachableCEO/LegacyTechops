@@ -18,16 +18,6 @@ ovh-dc-02.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,infra,netdata,ucs'
-pfv-dc-01.turnsys.net:
-  hostname: pfv-dc-01.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,infra,netdata,ucs'
-pfv-dc-02.turnsys.net:
-  hostname: pfv-dc-02.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,infra,netdata,ucs'
 odoo.turnsys.net:
   hostname: odoo.turnsys.net
   username: root
@@ -132,12 +122,12 @@ pfv-dc-01.turnsys.net:
   hostname: pfv-dc-01.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,infra,netdata'
+  tags: 'pfv,infra,netdata,ucs'
 pfv-dc-02.turnsys.net:
   hostname: pfv-dc-02.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'pfv,infra,netdata'
+  tags: 'pfv,infra,netdata,ucs'
 pfv-time1.pfv.turnsys.net:
   hostname: pfv-time1.pfv.turnsys.net
   username: root
