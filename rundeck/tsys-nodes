@@ -48,16 +48,6 @@ ovh-rrappsrv-02.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,rr,oam-rhel,netdata'
-ovh-rrwwwsrv-01.turnsys.net:
-  hostname: ovh-rrwwwsrv-01.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,rr,oam,netdata'
-ovh-rrwwwsrv-02.turnsys.net:
-  hostname: ovh-rrwwwsrv-02.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,rr,oam,netdata'
 esign.turnsys.com:
   hostname: ovhint-esign.turnsys.net
   username: root
@@ -70,16 +60,6 @@ ovh-db-01.turnsys.net:
   tags: 'prod,ovh,oam,netdata'
 ovh-db-02.turnsys.net:
   hostname: ovh-db-02.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,oam,netdata'
-ovh-polwwwsrv-01.turnsys.net:
-  hostname: ovh-polwwwsrv-01.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,oam,netdata'
-ovh-polwwwsrv-02.turnsys.net:
-  hostname: ovh-polwwwsrv-02.turnsys.net
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,oam,netdata'
