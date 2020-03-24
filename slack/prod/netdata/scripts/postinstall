@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#echo "stopping netdata..."
-#service netdata stop
+echo "stopping netdata..."
+service netdata stop
 
-#echo "starting netdata..."
-#service netdata start
+echo "starting netdata..."
+service netdata start
 
 echo "netdata file refresh"
