@@ -158,13 +158,3 @@ pfv-doorman.pfv.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,pfv,physical,oam,netdata'
-lists.thefnf.org:
-  hostname: lists.thefnf.org
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh-vps'
-fnfwww.thefnf.org:
-  hostname: fnfwww.thefnf.org
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh-vps'
