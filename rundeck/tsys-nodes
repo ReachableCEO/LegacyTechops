@@ -48,11 +48,6 @@ ovh-rrappsrv-02.turnsys.net:
   username: root
   ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
   tags: 'prod,ovh,rr,oam-rhel,netdata'
-esign.turnsys.com:
-  hostname: ovhint-esign.turnsys.net
-  username: root
-  ssh-keypath: /var/lib/rundeck/ssh-keys/service-key
-  tags: 'prod,ovh,oam-rhel,netdata'
 ovh-db-01.turnsys.net:
   hostname: ovh-db-01.turnsys.net
   username: root
