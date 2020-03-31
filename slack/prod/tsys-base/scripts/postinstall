@@ -111,5 +111,6 @@ echo "Turning on process accounting..."
 accton on
 
 newaliases
+slack netdata
 
 slack tsys-$tsysSysLocation
