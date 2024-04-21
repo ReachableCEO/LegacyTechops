@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "stopping ossec..."
-/var/ossec/bin/ossec-control stop
-
-echo "starting ossec..."
-/var/ossec/bin/ossec-control start
-
