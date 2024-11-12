@@ -1,0 +1,126 @@
+rackdiag {
+
+//r1
+	rack {
+		42U;
+		description = "R1 - Fully enclosed cabinet, holds all cisco routers/switches.)";
+		42: 
+		41: 
+		40: 
+		39: 
+		38: 
+		37:
+		36:
+		35:
+		34:
+		33:
+		32:
+		31:
+		30:
+		29:
+		28:
+		27:
+		26:
+		25:
+		24:
+		23:
+		22:
+		21:
+		20:
+		19:
+		18:
+		17:
+		16:
+		15:
+		14: 
+		13: 
+		12: 
+		11: 
+		10: 
+		09: 
+		08: 
+		07: 
+		06: 
+		05: 
+		04: 
+		03: 
+		02: 
+		01: 
+	}
+
+//r2
+	rack {
+		42U;
+		description = "R2 - Fully enclosed cabinet, holds all the prod gear.)";
+		42: N/A
+		41: unmanaged pdu
+		40: pdu01
+		39: pdu02
+		38: devrtr02 mikrotik
+		37: devrtr01 ubiquiti edge router
+		36: devsw04 Cisco 3500 poe
+		35: devsw01 Cisco 2950
+		34: devsw02 Cisco 2950
+		33: devsw03 Cisco 3500
+		32: labsw01 Dell PowerConnect
+		31: switch patch panel
+		30: devrtr03 Cisco ISR 1841
+		29: devrtr04 Cisco ISR 1841
+		28: labcon01 ACS48
+		27: console server patch panel
+		26: devrtr06 Cisco 26xx
+		25: devsw05 Cisco 2948G
+		24: devsw05 Cisco 2948G
+		23: devrtr07 Cisco 3640
+		22: devrtr07 Cisco 3640
+		21: available slot
+		20: available slot
+		19: devrtr08 (firebox) devrtr05 (pix 501)
+		18: available slot
+		17: available slot
+		16: ups fsrtr01
+		15: devrtr09 (6500)
+		14: devrtr09
+		13: devrtr09
+		12: devrtr09
+		11: devrtr09
+		10: devrtr09
+		09: devrtr09
+		08: devrtr09
+		07: devrtr09
+		06: devrtr09
+		05: devrtr09
+		04: devrtr09
+		03: devrtr09
+	}
+
+
+//r3
+	rack {
+		24U;
+		description = "R3 - Skeltek 2 post, holds client end points";
+		24:
+		23:
+		22:
+		21:
+		20:
+		19:
+		18:
+		17:
+		16:
+		15:
+		14:
+		13:
+		12:
+		11:
+		10:
+		09:
+		08:
+		07:
+		06:
+		05:
+		04:
+		03:
+		02:
+		01:
+	}

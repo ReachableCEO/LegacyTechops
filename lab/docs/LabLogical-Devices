@@ -1,0 +1,103 @@
+nwdiag {
+
+  network TURNSYS_AP_LAN {
+	address = "10.251.3.0/24";
+	auslab-labrtr-apgw [ address = ".254"];
+	auslab-ap01 [ address = ".1"];
+	auslab-ap02 [ address = ".2"];
+	auslab-ap03 [ address = ".3"];
+	auslab-ap04 [ address = ".4"];
+	auslab-ap05 [ address = ".5"];
+	auslab-ap06 [ address = ".6"];
+	auslab-ap07 [ address = ".7"];
+	auslab-ap08 [ address = ".8"];
+	auslab-ap09 [ address = ".9"];
+	auslab-ap10 [ address = ".10"];
+	auslab-ap11 [ address = ".11"];
+	auslab-ap12 [ address = ".12"];
+
+  group turnsysaplan-vlan3 {
+	auslab-labrtr-apgw;
+	auslab-ap01;
+	auslab-ap02;
+	auslab-ap03;
+	auslab-ap04;
+	auslab-ap05;
+	auslab-ap06;
+	auslab-ap07;
+	auslab-ap08;
+	auslab-ap09;
+	auslab-ap10;
+	auslab-ap11;
+	auslab-ap12;
+	}
+  }
+
+  network TURNSYS_SWITCH_LAN {
+	address = "10.251.4.0/24";
+	auslab-labrtr-switchgw [ address = ".254"];
+	auslab-sw01 [ address = ".1"];
+	auslab-sw02 [ address = ".2"];
+	auslab-sw03 [ address = ".3"];
+	auslab-sw05 [ address = ".5"];
+	auslab-sw06 [ address = ".6"];
+	auslab-sw07 [ address = ".7"];
+
+  group turnsysswitchlan-vlan4 {
+	auslab-labrtr-switchgw;
+	auslab-sw01;
+	auslab-sw02;
+	auslab-sw03;
+	auslab-sw05;
+	auslab-sw06;
+	auslab-sw07;
+	}
+  }
+
+  network TURNSYS_VOIP_LAN{
+	address = "10.251.5.0/24";
+	auslab-labrtr-voipgw [ address = ".254"];
+
+  group turnsysvoip-vlan5 {
+	auslab-labrtr-voipgw;
+	}
+  }
+
+  network TURNSYS_ROUTER_LAN{
+	address = "10.251.6.0/24";
+	auslab-labrtr-routergw [ address = ".254"];
+
+  group turnsysrouter-vlan6 {
+	auslab-labrtr-routergw;
+	}
+  }
+
+  network TURNSYS_IPTV_LAN{
+	address = "10.251.7.0/24";
+	auslab-labrtr-iptvgw [ address = ".254"];
+
+  group turnsysiptv-vlan7 {
+	auslab-labrtr-iptvgw;
+	}
+  }
+
+  network TURNSYS_PEANUTGALLERY_LAN{
+	address = "10.251.8.0/24";
+	auslab-labrtr-pggw [ address = ".254"];
+
+  group turnsyspg-vlan8 {
+	auslab-labrtr-pggw;
+	}
+  }
+
+  network TURNSYS_MALZOO_LAN{
+	address = "10.251.12.0/24";
+	auslab-labrtr-malgw [ address = ".254"];
+
+  group turnsyspg-vlan12 {
+	auslab-labrtr-malgw;
+	}
+  }
+
+}
+

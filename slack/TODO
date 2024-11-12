@@ -1,0 +1,15 @@
+
+ELG
+OSSEC (with mass reg)
+
+NTP
+SSH config (banner,restrictions)
+SNMP configuration fixed
+OSSEC 
+		agent install
+		registration with server
+Central syslog
+Add to zenoss
+
+
+Create /root/builtON(date)AT(time)

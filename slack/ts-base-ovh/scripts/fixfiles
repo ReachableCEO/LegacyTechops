@@ -1,0 +1,4 @@
+chown -R localuser /var/lib/slack/stage/roles/txn04-base/files/local/localuser/
+chgrp -R localuser /var/lib/slack/stage/roles/txn04-base/files/local/localuser/
+chown -R localuser /var/lib/slack/stage/roles/txn04-base/files/local/localuser/.ssh/*
+chgrp -R localuser /var/lib/slack/stage/roles/txn04-base/files/local/localuser/.ssh/*

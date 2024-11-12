@@ -1,0 +1,293 @@
+#This file is fairly long and complex. Don't change it unless you know what you are doing. 
+#And if you aren't Charles Wyble, you don't know what your doing in this context. Trust me.
+
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+
+#First we create the bonded interfaces for high availabilty:
+
+
+###########################################################################################
+#First bond here (eth0/1 ha pair)
+###########################################################################################
+
+auto eth0
+	allow-bond0 eth0
+
+iface eth0 inet manual
+	bond-master bond0
+
+auto eth1
+	allow-bond0 eth1
+
+iface eth1 inet manual
+	bond-master bond0
+
+auto bond0
+iface bond0 inet manual
+	post-up ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	bond-slaves none
+	bond-mode active-backup
+	bond-miimon 100
+	bond-downdelay 200
+	bond-updelay 100
+	dns-nameservers 208.67.222.222 208.67.220.220
+
+###########################################################################################
+#Second bond here (eth2/3 ha pair)
+###########################################################################################
+
+auto eth2
+	allow-bond1 eth2
+
+iface eth2 inet manual
+	bond-master bond1
+
+auto eth3
+	allow-bond1 eth3
+
+iface eth3 inet manual
+	bond-master bond1
+
+auto bond1
+
+iface bond1 inet manual
+	post-up ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	bond-slaves none
+	bond-mode active-backup
+	bond-miimon 100
+	bond-downdelay 200
+	bond-updelay 100
+	dns-nameservers 208.67.222.222 208.67.220.220
+
+###########################################################################################
+#Interface defintions								   	  #
+###########################################################################################
+
+###########################################################################################
+#Backend MGMT interface (used for overall management network, physical devices)		  #
+###########################################################################################
+auto bond0.2
+	iface bond0.2 inet manual
+	post-up ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	vlan-raw-device bond0
+
+auto br2
+iface br2 inet static
+	address 10.250.2.3
+	netmask 255.255.255.0
+	gateway 10.250.2.1
+	bridge_ports bond0.2
+	bridge_stp off
+	bridge_fd 0
+	bridge_maxwait 0
+
+###########################################################################################
+#Backend FNF interface (used for FNF management network). For now all virtual machines    #
+###########################################################################################
+auto bond0.4
+	iface bond0.4 inet manual
+	post-up ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	vlan-raw-device bond0
+
+auto br4
+iface br4 inet static
+	address 10.250.4.3
+	netmask 255.255.255.0
+	gateway 10.250.4.1
+	bridge_ports bond0.4
+	bridge_stp off
+	bridge_fd 0
+	bridge_maxwait 0
+
+###########################################################################################
+#Frontend FNF interface (used for internet traffic)					  #
+###########################################################################################
+auto bond1.5
+	iface bond1.5 inet manual
+	post-up ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	vlan-raw-device bond1
+
+auto br5
+iface br5 inet static
+	address 10.250.5.3
+	netmask 255.255.255.0
+	gateway 10.250.5.1
+	bridge_ports bond1.5
+	bridge_stp off
+	bridge_fd 0
+	bridge_maxwait 0
+
+
+###########################################################################################
+#Backend infra interface (used for shared infra services like DNS)
+###########################################################################################
+auto bond0.6
+	iface bond0.6 inet manual
+	post-up ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	vlan-raw-device bond0
+
+auto br6
+iface br6 inet static
+	address 10.250.6.3
+	netmask 255.255.255.0
+	gateway 10.250.6.1
+	bridge_ports bond0.6
+	bridge_stp off
+	bridge_fd 0
+	bridge_maxwait 0
+
+###########################################################################################
+#Backend www interface (used for www management network)				  #
+###########################################################################################
+auto bond0.8
+        iface bond0.8 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond0
+
+auto br8
+iface br8 inet static
+        address 10.250.8.3
+        netmask 255.255.255.0
+        gateway 10.250.8.1
+        bridge_ports bond0.8
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+
+###########################################################################################
+#Frontend www interface (used for www external network)					  #
+###########################################################################################
+
+auto bond1.9
+        iface bond1.9 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond1
+
+auto br9
+iface br9 inet static
+        address 10.250.9.3
+        netmask 255.255.255.0
+        gateway 10.250.9.1
+        bridge_ports bond1.9
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+
+###########################################################################################
+#IMW backend interface 									  #
+###########################################################################################
+
+auto bond0.54
+        iface bond0.54 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond1
+
+auto br54
+iface br54 inet static
+        address 10.250.54.3
+        netmask 255.255.255.0
+        gateway 10.250.54.1
+        bridge_ports bond0.54
+        bridge_stp off
+        bridge_fd 0
+
+###########################################################################################
+#AutoTunnel interfaces	 								  #
+###########################################################################################
+
+#Management
+auto bond0.88
+        iface bond0.88 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond1
+
+auto br88
+iface br88 inet static
+        address 10.250.88.3
+        netmask 255.255.255.0
+        gateway 10.250.88.1
+        bridge_ports bond0.88
+        bridge_stp off
+        bridge_fd 0
+
+#Inline
+auto bond0.89
+        iface bond0.89 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond1
+
+auto br89
+iface br89 inet static
+        address 10.250.89.3
+        netmask 255.255.255.0
+        gateway 10.250.89.1
+        bridge_ports bond0.89
+        bridge_stp off
+        bridge_fd 0
+
+#Isolation
+auto bond0.90
+        iface bond0.90 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond1
+
+auto br90
+iface br90 inet static
+        address 10.250.90.3
+        netmask 255.255.255.0
+        gateway 10.250.90.1
+        bridge_ports bond0.90
+        bridge_stp off
+        bridge_fd 0
+
+#Registration
+auto bond0.91
+        iface bond0.91 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond1
+
+auto br91
+iface br91 inet static
+        address 10.250.91.3
+        netmask 255.255.255.0
+        gateway 10.250.91.1
+        bridge_ports bond0.91
+        bridge_stp off
+        bridge_fd 0
+
+###########################################################################################
+#KNEL backend interface 								  #
+###########################################################################################
+
+auto bond0.24
+        iface bond0.24 inet manual
+        post-up ifconfig $IFACE up
+        pre-down ifconfig $IFACE down
+        vlan-raw-device bond0
+
+auto br24
+iface br24 inet static
+        address 10.250.24.3
+        netmask 255.255.255.0
+        gateway 10.250.24.1
+        bridge_ports bond0.24
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0

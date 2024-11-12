@@ -1,0 +1,14 @@
+#!/bin/bash
+#A script to scan build systems
+
+#Execute the scan
+#-i print only infected files
+#-r scan recursively
+#-stdout force everything to stdout
+#-cross-fs=no don't cross filesystems
+#--follow-dir-symlinks/--follow-file-symlinks=2 force clamav to follow all symbolic links
+#--detect-pua[=yes/no(*)] Detect Possibly Unwanted Applications. See http://www.clamav.net/support/pua for the complete list of PUA
+
+clamscan -i -r --quiet --stdout --exclude-pua=packed --cross-fs=no --follow-dir-symlinks=2 --follow-file-symlinks=2 \
+--detect-pua=yes --exclude-dir=/usr/share/doc/clamav-0.97.6/test  --exclude=".svn-base$|.py$|.xml$|.pcap$|.iso$|.txt$|.log$|pcap.|.flow$|.flow2$|.dat$|.rb$" /
+

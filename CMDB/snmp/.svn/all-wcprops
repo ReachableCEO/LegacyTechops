@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/rg0103/pdesubversion-tpqaslack/!svn/ver/366/scripts/snmp
+END
+debian-default-snmpd
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rg0103/pdesubversion-tpqaslack/!svn/ver/315/scripts/snmp/debian-default-snmpd
+END
+centos-snmpd.options
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rg0103/pdesubversion-tpqaslack/!svn/ver/359/scripts/snmp/centos-snmpd.options
+END
+setup-snmp.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/rg0103/pdesubversion-tpqaslack/!svn/ver/366/scripts/snmp/setup-snmp.sh
+END
+snmpd.conf
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rg0103/pdesubversion-tpqaslack/!svn/ver/276/scripts/snmp/snmpd.conf
+END
